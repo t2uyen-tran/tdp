@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="bigTextView"
+        parent="Widget.MaterialComponents.TextView">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="normalTextView"
+        parent="Widget.MaterialComponents.TextView">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="smallTextView"
+        parent="Widget.MaterialComponents.TextView">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="photoTitleTextView"
+        parent="Widget.MaterialComponents.TextView">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">198dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+    </style>
+
+
+    <style name="GridImage">
+        <item name="android:layout_width">185dp</item>
+        <item name="android:layout_height">182dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+
+
+
+
+
+</resources>

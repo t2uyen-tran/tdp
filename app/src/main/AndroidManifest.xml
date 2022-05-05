@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.assetmonitoring">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AssetMonitoring">
+        <activity
+            android:name=".ui.main.ReportIssueActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.council.DisplayReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.council.UpdateIssueActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.signin.ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".ui.signin.SignInActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_application_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+
+        <activity
+            android:name=".ui.LauncherActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.council.OutstandingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.ListCategoryItems"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="com.example.assetmonitoring.util.initializers.TimberInitializer"
+                android:value="androidx.startup" />
+        </provider>
+    </application>
+
+</manifest>

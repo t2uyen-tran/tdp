@@ -1,0 +1,42 @@
+<resources>
+    <!--
+    <string name="app_name">AssetMonitoring</string> -->
+    <!-- Need this to be shown in the place of "app_name"-->
+    <string name="app_name">City of Swinburne</string>
+
+    <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
+
+    <string name="facebook_application_id" translatable="false">348525407342227</string>
+    <string name="facebook_client_token" translatable="false">47e63e30caf22522fca2d8d02fa651af</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb348525407342227</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <!-- main and secondary layouts -->
+    <string name="report_an_issue">Report an Issue</string>
+    <string name="council_worker_login">Council Worker Login</string>
+    <string name="footpath_list_title">Footpath:</string>
+    <!--    1st photo   -->
+    <string name="photo1Image">road</string>
+    <string name="photo1Name">Road</string>
+    <string name="photo1ManagerID">CW-00010</string>
+    <!--    2nd photo   -->
+    <string name="photo2Image">Footpath</string>
+    <string name="photo2Name">Footpath</string>
+    <string name="photo2ManagerID">CW-00290</string>
+    <!--    3rd photo   -->
+    <string name="photo3Image">bin</string>
+    <string name="photo3Name">Bin</string>
+    <string name="photo3ManagerID">CW-00117</string>
+    <!--    4th photo  -->
+    <string name="photo4Image">busstop</string>
+    <string name="photo4Name">Bus Stop</string>
+    <string name="photo4ManagerID">CW-00367</string>
+</resources>

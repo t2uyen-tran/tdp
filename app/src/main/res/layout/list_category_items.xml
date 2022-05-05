@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primaryColor"
+    tools:context=".ListCategoryItems">
+
+    <!-- create a Linear Layout with horizontal orientation and weightSum property -->
+    <LinearLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/reportAnIssue2_textV"
+            style="@style/normalTextView"
+            android:maxLines="2"
+            android:text="@string/report_an_issue" />
+
+        <TextView
+            android:id="@+id/categoryListTitle_textV"
+            android:layout_width="wrap_content"
+            style="@style/normalTextView"
+            android:maxLines="2"
+            android:text="@string/footpath_list_title"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="left" />
+
+        <ListView
+            android:id="@+id/footpathitems_listV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white"
+            android:divider="@color/primaryColor"
+            android:dividerHeight="2dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/uploadOrTakePhoto_textV"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            style="@style/normalTextView"
+            android:text="Photo:"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="left"/>
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="40dp"
+            android:backgroundTint="@color/beige"
+            android:text="Upload"
+            style="@style/normalTextView"
+            android:textColor="@color/secondaryTextColor" />
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/beige"
+            android:textColor="@color/secondaryTextColor"
+            app:srcCompat="@drawable/camera" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:layout_gravity="right"
+        android:text="Next >"
+        style="@style/normalTextView"
+        android:textColor="@color/secondaryTextColor" />
+
+</LinearLayout>

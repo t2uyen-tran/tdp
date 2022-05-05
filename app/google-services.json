@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "191595966148",
+    "project_id": "asset-monitoring-6b16b",
+    "storage_bucket": "asset-monitoring-6b16b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191595966148:android:ac71f5705661135096e391",
+        "android_client_info": {
+          "package_name": "com.example.assetmonitoring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191595966148-oeo1t6dbge7vg7v3b437ujsm7kdn9elb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqhsyhAzCXhCw32eYmvmLrBfHYgG6X558"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191595966148-oeo1t6dbge7vg7v3b437ujsm7kdn9elb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

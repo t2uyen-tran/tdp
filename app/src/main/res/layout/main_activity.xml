@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryColor"
+    tools:context=".ui.main.MainActivity">
+
+    <TextView
+        android:id="@+id/reportAnIssue1_textV"
+        style="@style/bigTextView"
+        android:maxLines="2"
+        android:text="@string/report_an_issue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.073" />
+
+    <ImageView
+        android:id="@+id/road_imageV"
+        style="@style/GridImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/left_guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:srcCompat="@drawable/roadimage" />
+
+    <ImageView
+        android:id="@+id/footpath_imageV"
+        style="@style/GridImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:srcCompat="@drawable/footpathimage" />
+
+    <ImageView
+        android:id="@+id/bin_imageV"
+        style="@style/GridImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/left_guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.70"
+        app:srcCompat="@drawable/binimage" />
+
+    <ImageView
+        android:id="@+id/busstop_imageV"
+        style="@style/GridImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.70"
+        app:srcCompat="@drawable/busstopimage" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <Button
+        android:id="@+id/sign_in_buton"
+        style="@style/normalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/buttonTint"
+        android:text="@string/council_worker_login"
+        android:textColor="@color/secondaryTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportAnIssue1_textV"
+        app:layout_constraintVertical_bias="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="395dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
