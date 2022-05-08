@@ -13,11 +13,25 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
+    <string name="log_in">Log in</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="council_worker_log_in">Council Worker Log in</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget your password?</string>
+    <string name="back">&#060; back</string>
+
+
+    <!-- update an issue layouts -->
+    <string name="update_an_issue">Update an issue</string>
+    <string name="report">Report &#062;</string>
+
+    <string name="diaplay_a_report">Diaplay a report</string>
+    <string name="back_to_my_home_page">&#060; Back to my home page</string>
 
     <!-- main and secondary layouts -->
     <string name="report_an_issue">Report an Issue</string>

@@ -1,9 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primaryColor"
     tools:context=".ui.council.UpdateIssueActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+
+    <TextView
+        android:id="@+id/update_an_issue_textV"
+        style="@style/bigTextView"
+        android:maxLines="1"
+        android:text="@string/update_an_issue"
+        />
+
+    <TextView
+        android:id="@+id/status_layout"
+        android:layout_width="wrap_content"
+        style="@style/normalTextView"
+        android:maxLines="2"
+        android:text="Status"
+        android:layout_marginLeft="50dp"
+        android:layout_gravity="left"
+        android:layout_marginTop="100dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/radioButton_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_gravity="left">
+
+        <RadioButton
+            android:id="@+id/radioButton1_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In Progress"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:checked="true"
+            android:minHeight="0dp"
+        />
+
+        <RadioButton
+            android:id="@+id/radioButton2_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wait for third party"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:checked="false"
+            android:minHeight="0dp"
+            />
+
+        <RadioButton
+            android:id="@+id/radioButton3_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resolved"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:checked="false"
+            android:minHeight="0dp"
+            />
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/resolve_layout"
+            android:layout_width="wrap_content"
+            style="@style/normalTextView"
+            android:maxLines="2"
+            android:text="Expected time to resolve"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="20dp"
+            />
+
+        <RadioGroup
+            android:id="@+id/radioButton_resolve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left">
+
+            <RadioButton
+                android:id="@+id/radioButton1_resolve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 to 2 days"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:checked="true"
+                android:minHeight="0dp"
+                />
+
+            <RadioButton
+                android:id="@+id/radioButton2_resolve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 to 5 days"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:checked="false"
+                android:minHeight="0dp"
+                />
+
+            <RadioButton
+                android:id="@+id/radioButton3_resolve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Over 5 days"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:checked="false"
+                android:minHeight="0dp"
+                />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/reason_layout"
+            android:layout_width="wrap_content"
+            style="@style/normalTextView"
+            android:maxLines="2"
+            android:text="Reason for over 5 days"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="20dp"
+            />
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/shape" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/secondLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:orientation="horizontal" >
+
+
+        <Button
+            android:id="@+id/submit"
+            style="@style/normalTextView"
+            android:backgroundTint="@color/buttonTint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="50dp"
+            android:enabled="false"
+            android:text="Submit"
+            android:textColor="@color/secondaryTextColor"
+            />
+
+        <Button
+            android:id="@+id/cancel"
+            style="@style/normalTextView"
+            android:backgroundTint="@color/buttonTint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:enabled="false"
+            android:text="Cancel"
+            android:textColor="@color/secondaryTextColor"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/thirdLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/back"
+            style="@style/normalTextView"
+            android:textColor="@color/secondaryTextColor"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/report"
+            style="@style/normalTextView"
+            android:textColor="@color/secondaryTextColor"
+            android:layout_marginLeft="195dp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
