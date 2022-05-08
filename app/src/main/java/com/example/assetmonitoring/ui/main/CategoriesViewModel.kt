@@ -2,8 +2,12 @@ package com.example.assetmonitoring.ui.main
 
 import androidx.lifecycle.ViewModel
 import com.example.assetmonitoring.R
+import com.example.assetmonitoring.model.Categories
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class CategoriesViewModel: ViewModel() {
+@HiltViewModel
+class CategoriesViewModel @Inject constructor() : ViewModel() {
 
     var currentIndex = 0
 

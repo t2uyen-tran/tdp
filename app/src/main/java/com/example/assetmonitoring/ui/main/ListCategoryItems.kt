@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.assetmonitoring.R
+import com.example.assetmonitoring.model.Categories
 
 private const val TAG = "ListCategoryItems"
 

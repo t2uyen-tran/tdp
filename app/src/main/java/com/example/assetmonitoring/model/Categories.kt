@@ -1,4 +1,4 @@
-package com.example.assetmonitoring.ui.main
+package com.example.assetmonitoring.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -11,4 +11,4 @@ data class Categories (
     val managerID: Int,       // integer id of worker ID for the manager of this category
     val categoryID: Int,         // ID number of this category
     val itemList: MutableList<String>     // A list of items in this category
-) : Parcelable {}
+) : Parcelable
