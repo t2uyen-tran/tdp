@@ -17,12 +17,22 @@
         <activity
             android:name=".ui.main.ReportIssueActivity"
             android:exported="false" />
+
+
         <activity
             android:name=".ui.council.DisplayReportActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.council.UpdateIssueActivity"
             android:exported="false" />
+
+
         <activity
             android:name=".ui.signin.ui.login.LoginActivity"
             android:exported="false"
@@ -40,19 +50,16 @@
 
         <activity
             android:name=".ui.LauncherActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.council.OutstandingActivity"
             android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".ui.main.ListCategoryItems"
             android:exported="false" />
