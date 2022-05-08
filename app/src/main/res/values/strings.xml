@@ -13,12 +13,16 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
+<<<<<<< HEAD
     <string name="log_in">Log in</string>
+=======
+>>>>>>> 5867a13 (SL Test)
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+<<<<<<< HEAD
     <string name="council_worker_log_in">Council Worker Log in</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -32,6 +36,8 @@
 
     <string name="diaplay_a_report">Diaplay a report</string>
     <string name="back_to_my_home_page">&#060; Back to my home page</string>
+=======
+>>>>>>> 5867a13 (SL Test)
 
     <!-- main and secondary layouts -->
     <string name="report_an_issue">Report an Issue</string>

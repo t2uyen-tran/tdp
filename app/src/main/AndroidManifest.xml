@@ -22,6 +22,7 @@
         <activity
             android:name=".ui.main.ReportIssueActivity"
             android:exported="false" />
+<<<<<<< HEAD
 
 
         <activity
@@ -34,6 +35,14 @@
             android:exported="false" />
 
 
+=======
+        <activity
+            android:name=".ui.council.DisplayReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.council.UpdateIssueActivity"
+            android:exported="false" />
+>>>>>>> 5867a13 (SL Test)
         <activity
             android:name=".ui.signin.ui.login.LoginActivity"
             android:exported="false"

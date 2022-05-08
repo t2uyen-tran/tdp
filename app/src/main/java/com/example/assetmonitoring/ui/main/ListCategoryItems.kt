@@ -120,7 +120,11 @@ class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
     }
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+<<<<<<< HEAD
         if (resultCode == RESULT_OK) {
+=======
+        if (resultCode == Activity.RESULT_OK) {
+>>>>>>> 5867a13 (SL Test)
             if (requestCode == GALLERY) {
                 if (data != null) {
                     val contentURI = data.data
@@ -246,7 +250,11 @@ class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
          * be accessed by the calling application (or all applications sharing the
          * same user ID).
          */
+<<<<<<< HEAD
         var file = wrapper.getDir(IMAGE_DIRECTORY, MODE_PRIVATE)
+=======
+        var file = wrapper.getDir(IMAGE_DIRECTORY, Context.MODE_PRIVATE)
+>>>>>>> 5867a13 (SL Test)
 
         // Create a file to save the image
         file = File(file, "${UUID.randomUUID()}.jpg")

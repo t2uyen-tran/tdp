@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 5867a13 (SL Test)
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:orientation="vertical"
     android:background="@color/primaryColor"
     tools:context=".ui.council.UpdateIssueActivity">
@@ -212,3 +217,8 @@
     </LinearLayout>
 
 </LinearLayout>
+=======
+    tools:context=".ui.council.UpdateIssueActivity">
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> 5867a13 (SL Test)
