@@ -3,6 +3,7 @@ package com.example.assetmonitoring.ui.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import com.example.assetmonitoring.databinding.MainActivityBinding
 import com.example.assetmonitoring.ui.signin.SignInActivity
@@ -49,4 +50,5 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(i)
     }
+
 }
