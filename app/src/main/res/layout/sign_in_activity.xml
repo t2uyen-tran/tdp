@@ -5,7 +5,6 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:background="@color/primaryColor"
     tools:context=".ui.signin.SignInActivity">
 
@@ -40,24 +39,10 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-=======
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".ui.signin.SignInActivity">
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
->>>>>>> 5867a13 (SL Test)
         android:autofillHints="@string/prompt_email"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
-<<<<<<< HEAD
         android:background="@drawable/shape"
         app:layout_constraintTop_toBottomOf="@+id/username_layout"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -84,24 +69,12 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-=======
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
->>>>>>> 5867a13 (SL Test)
         android:autofillHints="@string/prompt_password"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:selectAllOnFocus="true"
-<<<<<<< HEAD
         android:background="@drawable/shape"
         app:layout_constraintTop_toBottomOf="@+id/password_layout"
         app:layout_constraintLeft_toLeftOf="parent" />
@@ -110,33 +83,20 @@
         android:id="@+id/login"
         style="@style/normalTextView"
         android:backgroundTint="@color/buttonTint"
-=======
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
-
-    <Button
-        android:id="@+id/login"
->>>>>>> 5867a13 (SL Test)
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="64dp"
         android:enabled="false"
-<<<<<<< HEAD
         android:text="@string/log_in"
         android:textColor="@color/secondaryTextColor"
-=======
-        android:text="@string/action_sign_in"
->>>>>>> 5867a13 (SL Test)
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.2" />
 
-<<<<<<< HEAD
     <TextView
         android:id="@+id/forget_password"
         android:layout_width="wrap_content"
@@ -166,8 +126,6 @@
         app:layout_constraintHorizontal_bias="0.1"/>
 
 
-=======
->>>>>>> 5867a13 (SL Test)
     <ProgressBar
         android:id="@+id/loading"
         android:layout_width="wrap_content"
