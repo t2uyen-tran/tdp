@@ -2,16 +2,30 @@ package com.example.assetmonitoring.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.assetmonitoring.databinding.ReportIssueActivityBinding
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
+import com.example.assetmonitoring.R
 
 class ReportIssueActivity : AppCompatActivity() {
 
-    private lateinit var binding: ReportIssueActivityBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.report_issue_activity)
 
-        binding = ReportIssueActivityBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
+        //https://stackoverflow.com/questions/60481808/kotlin-how-to-save-radio-button-and-display-values-->
+        val radio_group = findViewById<RadioGroup>(R.id.radio_group)
+
+        // Get radio group selected item using on checked change listener
+        radio_group.setOnCheckedChangeListener{ radio_group, checkedId ->
+            val radio: RadioButton = findViewById(checkedId)
+            if(checkedId == R.id.radio_yes) {
+                Toast.makeText(this, "Please make sure to provide your email address to receive updates", Toast.LENGTH_LONG)
+                    .show()
+            }
+        }
+
     }
+
 }

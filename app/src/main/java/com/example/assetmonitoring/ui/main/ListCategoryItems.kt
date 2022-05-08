@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.assetmonitoring.R
 import com.example.assetmonitoring.model.Categories
+import com.example.assetmonitoring.ui.council.OutstandingActivity
 import com.facebook.appevents.suggestedevents.ViewOnClickListener
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -51,7 +52,7 @@ class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
         categoryNameTV.text = categoryName?.let { getString(it) }
 
         val listView = findViewById<ListView>(R.id.footpathitems_listV)
-        val uploadOrTakePhoto = findViewById<TextView>(R.id.uploadOrTakePhoto_textV)
+        val nextPage = findViewById<Button>(R.id.next_button)
 
         // camera and upload btn
         val uploadBtn = findViewById<Button>(R.id.uploadBtn)
@@ -71,13 +72,39 @@ class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
 
         listView.choiceMode = ListView.CHOICE_MODE_SINGLE
 
+        var selectedItemName = ""
 
 
         listView.setOnItemClickListener { adapterView, view, i, l ->
             Toast.makeText(this, "Item Selected: " + categoryItems[i], Toast.LENGTH_SHORT)
                 .show()
+            selectedItemName = categoryItems[i].toString()
         }
 
+        //this is to pass the selected category name and item to the next activity - for saving to Database
+        fun passIntent(){
+            val i = Intent(this, ReportIssueActivity::class.java).apply{
+                putExtra("category", categoryName)
+                putExtra("selectedItem", selectedItemName)
+            }
+            startActivity(i)
+        }
+
+        nextPage.setOnClickListener {
+            passIntent()
+        }
+
+        //this section is to test the "OutstandingActivity" for council workers - will be removed
+        val testButton: Button = findViewById(R.id.test_button)
+        testButton.setOnClickListener {
+            startActivity(Intent(this@ListCategoryItems,
+                OutstandingActivity::class.java)).also {
+                finish()
+            }
+        }
+
+
+        //upload photo button and take photo button
         uploadBtn.setOnClickListener(this)
         cameraBtn.setOnClickListener(this)
 

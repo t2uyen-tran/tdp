@@ -20,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AssetMonitoring">
         <activity
+            android:name=".ui.main.ListCategoryItems"
+            android:exported="false" />
+        <activity
             android:name=".ui.main.ReportIssueActivity"
             android:exported="false" />
 <<<<<<< HEAD

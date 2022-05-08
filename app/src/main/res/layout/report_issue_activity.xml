@@ -1,9 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primaryColor"
     tools:context=".ui.main.ReportIssueActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Getting User Input for Address -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/smallTextView"
+            android:textStyle="bold"
+            android:text="*"
+            android:textColor="@color/red"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="left"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/smallTextView"
+            android:textStyle="bold"
+            android:text="Location of the issue:"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="left"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/addressInput_ET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/edit_text_border"
+        android:paddingStart="2dp"
+        style="@style/smallTextView"
+        android:gravity="left"
+        android:inputType="textMultiLine"
+        android:maxLength="60"
+        android:layout_marginTop="5dp"
+        android:hint="Enter location"    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/smallTextView"
+        android:textStyle="bold"
+        android:text="Or select the address by dragging the map pin"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="left"/>
+
+    <ImageView
+        android:id="@+id/map_imageV"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/map" />
+
+    <!-- Getting User Input for Description of the Issue -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/smallTextView"
+        android:textStyle="bold"
+        android:text="Describe the Issue: (Optional)"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="left"/>
+
+    <EditText
+        android:id="@+id/issueDescriptionInput_ET"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/edit_text_border"
+        android:paddingStart="2dp"
+        style="@style/smallTextView"
+        android:gravity="left"
+        android:inputType="textMultiLine"
+        android:maxLength="500"
+        android:layout_marginTop="5dp"
+        android:hint="In 500 characters..."    />
+
+
+    <!-- Getting User Input for User contact details if wants to be notified of updates -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/smallTextView"
+            android:textStyle="bold"
+            android:text="Your details"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="left"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/smallTextView"
+            android:text="(provide if you want to be notified"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="left"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/smallTextView"
+        android:text="of any updates regarding this issue)"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="left"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            style="@style/smallTextView"
+            android:text="Name:"
+            android:layout_marginLeft="15dp"
+            android:gravity="left"/>
+
+        <EditText
+            android:id="@+id/nameInput_ET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_border"
+            android:paddingStart="2dp"
+            style="@style/smallTextView"
+            android:gravity="left"
+            android:inputType="text"
+            android:maxLength="500"
+            android:layout_marginTop="5dp"
+            android:text=""    />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            style="@style/smallTextView"
+            android:text="Mobile:"
+            android:layout_marginLeft="15dp"
+            android:gravity="left"/>
+
+        <EditText
+            android:id="@+id/mobileInput_ET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_border"
+            android:paddingStart="2dp"
+            style="@style/smallTextView"
+            android:gravity="left"
+            android:inputType="text"
+            android:maxLength="500"
+            android:layout_marginTop="5dp"
+            android:text=""    />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            style="@style/smallTextView"
+            android:text="Email:"
+            android:layout_marginLeft="15dp"
+            android:gravity="left"/>
+
+        <EditText
+            android:id="@+id/emailInput_ET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_border"
+            android:paddingStart="2dp"
+            style="@style/smallTextView"
+            android:gravity="left"
+            android:inputType="textEmailAddress"
+            android:maxLength="500"
+            android:layout_marginTop="5dp"
+            android:text=""    />
+
+    </LinearLayout>
+
+    <!-- Getting User to choose if wants to be notified of updates -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/smallTextView"
+            android:textStyle="bold"
+            android:text="Notify updates:"
+            android:layout_marginLeft="15dp"
+            android:gravity="left"/>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp">
+            <RadioButton android:id="@+id/radio_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/smallTextView"
+                android:text="Yes" />
+            <RadioButton android:id="@+id/radio_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                style="@style/smallTextView"
+                android:text="No"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit_buton"
+        style="@style/normalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/buttonTint"
+        android:text="Submit"
+        android:textColor="@color/secondaryTextColor"
+        android:layout_gravity="center"
+        />
+
+
+</LinearLayout>

@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="beige">#FFF3E0</color>
+    <color name="red">#F44336</color>
 
     <color name="primaryColor">#a7ffeb</color>
     <color name="primaryLightColor">#dbffff</color>

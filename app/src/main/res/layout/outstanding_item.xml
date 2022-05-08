@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/outstandingListItem_LO"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:orientation="vertical">
+
+    <!--Reported Issue ID-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            style="@style/reportRowHeader"
+            android:text="Reported Issue ID"/>
+
+        <TextView
+            android:id="@+id/caseID_TV"
+            style="@style/reportRowValue"
+            android:text="ddd"/>
+    </LinearLayout>
+
+    <!--Category-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            style="@style/reportRowHeader"
+            android:text="Category"/>
+
+        <TextView
+            android:id="@+id/reportedCategory_TV"
+            style="@style/reportRowValue"
+            android:text="ddd" />
+    </LinearLayout>
+
+    <!--Category Item-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            style="@style/reportRowHeader"
+            android:text="Item"/>
+
+        <TextView
+            android:id="@+id/reportedItem_TV"
+            style="@style/reportRowValue"
+            android:text="ddd" />
+    </LinearLayout>
+
+    <!--Location-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            style="@style/reportRowHeader"
+            android:text="Location"
+            android:lines="2"/>
+
+        <TextView
+            android:id="@+id/reportedLocation_TV"
+            style="@style/reportRowValue"
+            android:text="ddd" />
+    </LinearLayout>
+
+    <!--Time lapsed since last update-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            style="@style/reportRowHeader"
+            android:text="Last Updated On"
+            android:lines="2"/>
+
+        <TextView
+            android:id="@+id/lastUpdatedOn_TV"
+            style="@style/reportRowValue"
+            android:text="ddd" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/primaryColor"
-    tools:context=".ListCategoryItems">
+    tools:context=".ui.main.ListCategoryItems">
 
     <!-- create a Linear Layout with horizontal orientation and weightSum property -->
     <LinearLayout
@@ -86,15 +86,48 @@
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:layout_gravity="right"
-        android:text="Next >"
-        style="@style/normalTextView"
-        android:textColor="@color/secondaryTextColor" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <ImageView
+            android:id="@+id/photo_imageV"
+            android:layout_marginLeft="15dp"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/grandcanyon" />
+
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:layout_gravity="right"
+            android:text="Next >"
+            style="@style/normalTextView"
+            android:textColor="@color/secondaryTextColor" />
+
+
+        <!--this is a test button to go to "OutstandingActivity" for Council workers. It will be removed-->
+        <Button
+            android:id="@+id/test_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:layout_gravity="right"
+            android:text="Test OutstandingActivity"
+            style="@style/smallTextView"
+            android:textColor="@color/secondaryTextColor" />
+
+    </LinearLayout>
 
 </LinearLayout>
