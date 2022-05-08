@@ -18,7 +18,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AssetMonitoring">
+        android:theme="@style/Theme.AssetMonitoring"
+        tools:ignore="ExtraText">
         <activity
             android:name=".ui.main.ListCategoryItems"
             android:exported="false" />
@@ -35,16 +36,6 @@
         <activity
             android:name=".ui.council.UpdateIssueActivity"
             android:exported="false" />
-
-
-=======
-        <activity
-            android:name=".ui.council.DisplayReportActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.council.UpdateIssueActivity"
-            android:exported="false" />
->>>>>>> 5867a13 (SL Test)
         <activity
             android:name=".ui.signin.ui.login.LoginActivity"
             android:exported="false"
@@ -76,9 +67,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.main.ListCategoryItems"
-            android:exported="false" />
+
 
         <provider
             android:name="androidx.startup.InitializationProvider"
