@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.activity.viewModels
+import com.example.assetmonitoring.R
 import com.example.assetmonitoring.databinding.MainActivityBinding
+import com.example.assetmonitoring.ui.council.OutstandingActivity
 import com.example.assetmonitoring.ui.signin.SignInActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,6 +42,14 @@ class MainActivity : AppCompatActivity() {
         binding.signInButon.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
         }
+
+        //This is for the Test button to test the Council OutstandingActivity - to be deleted after
+        val testButton: Button = findViewById(R.id.test_buton)
+        testButton.setOnClickListener {
+            // go to Council OutstandingActivity page to test as "Sign In" activity not ready
+            startActivity(Intent(this@MainActivity, OutstandingActivity::class.java))
+            finish()
+        }
     }
 
     //this function uses the index number to retrieve the details of the selected location from the LocationsViewModel,
@@ -50,7 +61,5 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(i)
     }
-
-
 
 }

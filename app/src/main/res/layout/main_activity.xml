@@ -77,6 +77,20 @@
         app:layout_constraintTop_toBottomOf="@+id/reportAnIssue1_textV"
         app:layout_constraintVertical_bias="0.92" />
 
+    <!--this button is to be deleted after finish testing-->
+    <Button
+        android:id="@+id/test_buton"
+        style="@style/smallTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/buttonTint"
+        android:text="Test Council"
+        android:textColor="@color/secondaryTextColor"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
