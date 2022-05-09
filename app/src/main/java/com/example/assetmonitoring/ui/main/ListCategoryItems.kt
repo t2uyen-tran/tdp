@@ -35,7 +35,7 @@ private const val TAG = "ListCategoryItems"
 
 class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
 
-    //val iv_place_image : ImageView? = findViewById<ImageView>(R.id.iv_place_image)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onStart()called")
@@ -140,6 +140,7 @@ class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
     }
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        val ivPlaceImage  = findViewById<ImageView>(R.id.iv_place_image)
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == GALLERY) {
                 if (data != null) {
@@ -151,6 +152,7 @@ class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
                             MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
                         val saveImageToInternalStorage =
                             saveImageToInternalStorage(selectedImageBitmap)
+                        ivPlaceImage.setImageBitmap(selectedImageBitmap)
                         Log.e("Saved Image : ", "Path :: $saveImageToInternalStorage")
 
                         // Set the selected image from GALLERY to imageView.
@@ -167,6 +169,7 @@ class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
                 val thumbnail: Bitmap = data!!.extras!!.get("data") as Bitmap // Bitmap from camera
                 val saveImageToInternalStorage =
                     saveImageToInternalStorage(thumbnail)
+                ivPlaceImage.setImageBitmap(thumbnail)
                 Log.e("Saved Image : ", "Path :: $saveImageToInternalStorage")
                 Toast.makeText(this@ListCategoryItems, "Successfully added from camera", Toast.LENGTH_SHORT)
                     .show() // Set to the imageView.
