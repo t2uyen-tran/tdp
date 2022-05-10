@@ -8,6 +8,8 @@
     android:background="@color/primaryColor"
     tools:context=".ui.main.MainActivity">
 
+    <include layout="@layout/titlebar"/>
+
     <TextView
         android:id="@+id/reportAnIssue1_textV"
         style="@style/bigTextView"
@@ -18,7 +20,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintVertical_bias="0.104" />
 
     <ImageView
         android:id="@+id/road_imageV"
@@ -26,7 +28,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/left_guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintVertical_bias="0.276"
         app:srcCompat="@drawable/roadimage" />
 
     <ImageView
@@ -35,7 +37,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintVertical_bias="0.276"
         app:srcCompat="@drawable/footpathimage" />
 
     <ImageView

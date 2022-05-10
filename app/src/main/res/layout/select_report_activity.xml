@@ -8,6 +8,8 @@
     android:background="@color/primaryColor"
     tools:context=".ui.council.SelectReportActivity">
 
+    <include layout="@layout/titlebar"/>
+
     <LinearLayout
         android:id="@+id/firstLayout"
         android:layout_width="match_parent"

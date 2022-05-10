@@ -8,6 +8,8 @@
     android:background="@color/primaryColor"
     tools:context=".ui.signin.SignInActivity">
 
+    <include layout="@layout/titlebar"/>
+
     <TextView
     android:id="@+id/councilWorkerLogin_textV"
     style="@style/bigTextView"

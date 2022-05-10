@@ -9,6 +9,8 @@
     android:background="@color/primaryColor"
     tools:context=".ui.council.OutstandingActivity">
 
+    <include layout="@layout/titlebar"/>
+
     <TextView
         android:id="@+id/greetingWithWorkerName_TV"
         android:layout_width="wrap_content"

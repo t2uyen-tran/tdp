@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:background="@color/primaryColor"
     tools:context=".ui.main.ReportIssueActivity">
+    <include layout="@layout/titlebar"/>
 
     <!-- Getting User Input for Address -->
     <LinearLayout
