@@ -43,7 +43,7 @@ class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
 
         val categoryNameTV = findViewById<TextView>(R.id.categoryListTitle_textV)
 
-        //received the details of the selected category which is a parcelable object included in the intent
+        //SL: received the details of the selected category which is a parcelable object included in the intent
         val result = intent.getParcelableExtra<Categories>("result")
         val categoryName = result?.name
         val categoryItems: MutableList<String>
@@ -81,7 +81,7 @@ class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
             selectedItemName = categoryItems[i].toString()
         }
 
-        //this is to pass the selected category name and item to the next activity - for saving to Database
+        //SL: this is to pass the selected category name and item to the next activity - for saving to Database
         fun passIntent(){
             val i = Intent(this, ReportIssueActivity::class.java).apply{
                 putExtra("category", categoryName)
@@ -94,7 +94,11 @@ class ListCategoryItems : AppCompatActivity(), View.OnClickListener {
             passIntent()
         }
 
-
+        //SL: press "Back" button to back to previous page
+        val backButton: Button = findViewById(R.id.back_button)
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
 
 
         //upload photo button and take photo button

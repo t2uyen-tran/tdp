@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primaryColor"
+    tools:context=".ui.council.SelectReportActivity">
+
+    <LinearLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/display_report_textV"
+            style="@style/bigTextView"
+            android:maxLines="1"
+            android:text="@string/select_a_report" />
+
+        <TextView
+            android:id="@+id/report_start_date_layout"
+            android:layout_width="wrap_content"
+            style="@style/normalTextView"
+            android:maxLines="2"
+            android:text="Report start date:"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="30dp" />
+
+        <!-- SL: An EditText view that take Date as input - when onClick will call a DatePickerDialog -->
+            <EditText
+                android:id="@+id/reportDate_ET"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                style="@style/smallTextView"
+                android:focusable="false"
+                android:inputType="date"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/edit_text_border"
+                android:paddingStart="5dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:hint="dd/mm/yyyy"    />
+
+
+        <!-- SL: two groups of check box for the worker to choose report parameters -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:weightSum="2">
+
+            <!-- first group for "Status"-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    style="@style/normalTextView"
+                    android:maxLines="2"
+                    android:text="@string/status"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="20dp" />
+
+                <CheckBox
+                    android:id="@+id/status1_checkBox"
+                    style="@style/checkBoxStyle"
+                    android:text="@string/status1"
+                    tools:layout_editor_absoluteX="34dp"
+                    tools:layout_editor_absoluteY="524dp" />
+
+                <CheckBox
+                    android:id="@+id/status2_checkBox"
+                    style="@style/checkBoxStyle"
+                    android:text="@string/status2"
+                    tools:layout_editor_absoluteX="34dp"
+                    tools:layout_editor_absoluteY="590dp" />
+
+                <CheckBox
+                    android:id="@+id/status3_checkBox"
+                    style="@style/checkBoxStyle"
+                    android:text="@string/status3"
+                    tools:layout_editor_absoluteX="34dp"
+                    tools:layout_editor_absoluteY="667dp" />
+
+
+            </LinearLayout>
+
+            <!-- second group -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    style="@style/normalTextView"
+                    android:maxLines="2"
+                    android:text="@string/category"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="20dp" />
+
+                <CheckBox
+                    android:id="@+id/category1_checkBox"
+                    style="@style/checkBoxStyle"
+                    android:text="@string/photo1Name"
+                    tools:layout_editor_absoluteX="34dp"
+                    tools:layout_editor_absoluteY="524dp" />
+
+                <CheckBox
+                    android:id="@+id/category2_checkBox"
+                    style="@style/checkBoxStyle"
+                    android:text="@string/photo2Name"
+                    tools:layout_editor_absoluteX="34dp"
+                    tools:layout_editor_absoluteY="590dp" />
+
+                <CheckBox
+                    android:id="@+id/category3_checkBox"
+                    style="@style/checkBoxStyle"
+                    android:text="@string/photo3Name"
+                    tools:layout_editor_absoluteX="34dp"
+                    tools:layout_editor_absoluteY="667dp" />
+
+                <CheckBox
+                    android:id="@+id/category4_checkBox"
+                    style="@style/checkBoxStyle"
+                    android:text="@string/photo4Name"
+                    tools:layout_editor_absoluteX="35dp"
+                    tools:layout_editor_absoluteY="466dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginLeft="15dp"
+            android:gravity="left"
+            android:text="@string/back"
+            style="@style/normalTextView"
+            android:textColor="@color/secondaryTextColor" />
+
+        <Button
+            android:id="@+id/generateReport_button"
+            style="@style/normalTextView"
+            android:layout_width="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/buttonTint"
+            android:text="Display Report"
+            android:textColor="@color/secondaryTextColor"
+            />
+    </LinearLayout>
+
+</LinearLayout>

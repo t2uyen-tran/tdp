@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--SL-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -37,17 +38,39 @@
         android:layout_height="500dp"
         />
 
-    <Button
-        android:id="@+id/generateReport_buton"
-        style="@style/normalTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="@color/buttonTint"
-        android:text="Generate Report"
-        android:textColor="@color/secondaryTextColor"
-        android:layout_gravity="center"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginLeft="15dp"
+            android:gravity="left"
+            android:text="@string/back"
+            style="@style/normalTextView"
+            android:textColor="@color/secondaryTextColor" />
+
+        <Button
+            android:id="@+id/generateReport_button"
+            style="@style/normalTextView"
+            android:layout_width="match_parent"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/buttonTint"
+            android:text="Generate Report"
+            android:textColor="@color/secondaryTextColor"
+            />
+
+
+
+    </LinearLayout>
+
 
 
 </LinearLayout>

@@ -1,4 +1,5 @@
 package com.example.assetmonitoring.ui.main
+//SL
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

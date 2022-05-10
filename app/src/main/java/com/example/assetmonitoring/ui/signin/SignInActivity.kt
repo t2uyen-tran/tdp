@@ -8,12 +8,15 @@ import android.text.TextWatcher
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.StringRes
 import com.example.assetmonitoring.R
 import com.example.assetmonitoring.databinding.SignInActivityBinding
 import com.example.assetmonitoring.ui.LauncherActivity
+import com.example.assetmonitoring.ui.council.OutstandingActivity
+import com.example.assetmonitoring.ui.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -66,6 +69,15 @@ class SignInActivity : AppCompatActivity() {
                 signIn(username.text.toString(), password.text.toString())
             }
         }
+
+        //SL: click "Back" button to go back to MainActivity page
+        val backButton: Button = findViewById(R.id.back_button)
+        backButton.setOnClickListener {
+            //SL: go back to the Main Activity as the previous activity
+            startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+            finish()
+        }
+
     }
 
     // A placeholder username validation check

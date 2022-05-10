@@ -10,16 +10,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assetmonitoring.R
 
-
+//SL: setup the ReclyerView Adapter to display a list of outstanding items on the worker landing page once successfully signed in
 class OutstandingListAdapter(var outstandingItemList: List<Cases>):
     RecyclerView.Adapter<OutstandingListAdapter.OutstandingListViewHolder>() {
 
     class OutstandingListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val caseIDTV: TextView = itemView.findViewById(R.id.caseID_TV)
-        val reportedCategoryTV: TextView = itemView.findViewById(R.id.reportedCategory_TV)
-        val reportedItemTV: TextView = itemView.findViewById(R.id.reportedItem_TV)
-        val reportedLocationTV: TextView = itemView.findViewById(R.id.reportedLocation_TV)
-        val lastUpdatedTV: TextView = itemView.findViewById(R.id.lastUpdatedOn_TV)
+        val caseCategoryTV: TextView = itemView.findViewById(R.id.caseCategory_TV)
+        val caseItemTV: TextView = itemView.findViewById(R.id.caseItem_TV)
+        val caseStatusTV: TextView = itemView.findViewById(R.id.caseStatus_TV)
+        val caseLocationTV: TextView = itemView.findViewById(R.id.caseLocation_TV)
+        val caseLastUpdatedTV: TextView = itemView.findViewById(R.id.caseLastUpdatedOn_TV)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OutstandingListViewHolder {
@@ -31,13 +32,14 @@ class OutstandingListAdapter(var outstandingItemList: List<Cases>):
     override fun onBindViewHolder(holder: OutstandingListViewHolder, position: Int) {
         val outstandingListData: Cases = outstandingItemList[position]
         holder.caseIDTV.text = outstandingItemList[position].caseID.toString()
-        holder.reportedCategoryTV.text = outstandingItemList[position].category
-        holder.reportedItemTV.text = outstandingItemList[position].item
-        holder.reportedLocationTV.text = outstandingItemList[position].location
-        holder.lastUpdatedTV.text = outstandingItemList[position].lastUpdated.toString()
+        holder.caseCategoryTV.text = outstandingItemList[position].category
+        holder.caseItemTV.text = outstandingItemList[position].item
+        holder.caseStatusTV.text = outstandingItemList[position].status
+        holder.caseLocationTV.text = outstandingItemList[position].location
+        holder.caseLastUpdatedTV.text = outstandingItemList[position].lastUpdated.toString()
 
 
-        //save the data of the curr item to shared preferences which is accessible across activities
+        //SL: save the data of the curr item to shared preferences which is accessible across activities
         fun savedData() {
             val activity = holder.itemView.context as AppCompatActivity
             val sharedPreferences =
@@ -45,11 +47,11 @@ class OutstandingListAdapter(var outstandingItemList: List<Cases>):
             val editor = sharedPreferences.edit()
             editor.apply {
                 putInt("CaseID_KEY", outstandingListData.caseID)
-                putString("ReportedCategory_KEY", outstandingListData.category)
-                putString("ReportedCategory_KEY", outstandingListData.category)
-                putString("ReportedItem_KEY", outstandingListData.item)
-                putString("ReportedLocation_KEY", outstandingListData.location)
-                putString("LastUpdated_KEY", outstandingListData.lastUpdated.toString())
+                putString("CaseCategory_KEY", outstandingListData.category)
+                putString("CaseItem_KEY", outstandingListData.item)
+                putString("CaseStatus_KEY", outstandingListData.status)
+                putString("CaseLocation_KEY", outstandingListData.location)
+                putString("CaseLastUpdated_KEY", outstandingListData.lastUpdated.toString())
             }.apply()
         }
 

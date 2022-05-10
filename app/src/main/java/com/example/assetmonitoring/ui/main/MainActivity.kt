@@ -1,4 +1,5 @@
 package com.example.assetmonitoring.ui.main
+//SL
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -43,17 +44,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SignInActivity::class.java))
         }
 
-        //This is for the Test button to test the Council OutstandingActivity - to be deleted after
+        //SL: This is for the Test button to test the Council OutstandingActivity - to be deleted after
         val testButton: Button = findViewById(R.id.test_buton)
         testButton.setOnClickListener {
-            // go to Council OutstandingActivity page to test as "Sign In" activity not ready
+            //SL: go to Council OutstandingActivity page to test as "Sign In" activity not ready
             startActivity(Intent(this@MainActivity, OutstandingActivity::class.java))
             finish()
         }
     }
 
-    //this function uses the index number to retrieve the details of the selected location from the LocationsViewModel,
-    //and passes the information to the second_activity page as a parcelable object in an Intent
+    //SL: this function uses the index number to retrieve the details of the selected category from the CategoriesViewModel,
+    //SL: and passes the information to the second_activity page as a parcelable object in an Intent
     private fun passIntent(index: Int) {
         categoriesViewModel.currentIndex = index
         val i = Intent(this, ListCategoryItems::class.java).apply {

@@ -1,4 +1,5 @@
 package com.example.assetmonitoring.ui.main
+//SL
 
 import androidx.lifecycle.ViewModel
 import java.util.*
@@ -7,7 +8,7 @@ class CasesViewModel: ViewModel() {
 
     var currentIndex = 0
 
-    //this should be read from Database once setup - hardcode the list for the time being
+    //SL: this should be read from Database once setup - hardcode the list for the time being
     private val caseBank = listOf(
         Cases(1000001,
             "Footpath",
@@ -16,7 +17,7 @@ class CasesViewModel: ViewModel() {
             "9 Sorrento St., Broadmeadows 3047",
             "",
             "",
-            "",
+            "In Progress",
             "2 to 5 days",
             1,
             "",
@@ -31,7 +32,7 @@ class CasesViewModel: ViewModel() {
             "118 Pascoe Vale Rd., Broadmeadows 3047",
             "",
             "",
-            "",
+            "In Progress",
             "2 to 5 days",
             1,
             "",
@@ -46,14 +47,29 @@ class CasesViewModel: ViewModel() {
             "7 Nathalia St., Broadmeadows 3047",
             "",
             "",
-            "",
+            "Resolved",
             "2 to 5 days",
             1,
             "",
             "To be assigned",
             "",
             NotifyUpdate = true,
-            "103196737@student.swin.edu.au")
+            "103196737@student.swin.edu.au"),
+        Cases(1000004,
+            "Footpath",
+            "Lifted or broken slabs",
+            Date(5/10/2022),
+            "3 Rau Crt., Broadmeadows 3047",
+            "",
+            "",
+            "Wait for third party",
+            "2 to 5 days",
+            1,
+            "",
+            "To be assigned",
+            "",
+            NotifyUpdate = false,
+            "")
     )
 
 
