@@ -24,7 +24,7 @@
     <string name="password">Password</string>
     <string name="forget_password">Forget your password?</string>
     <string name="back">&#060; back</string>
-
+    <string name="google_maps_api_key">AIzaSyBUuCbVC0AU5tHLbK1c3LirfD1FYJoTM5g</string>
 
     <!-- update an issue layouts -->
     <string name="update_an_issue">Update an issue</string>
