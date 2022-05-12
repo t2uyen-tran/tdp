@@ -1,3 +1,7 @@
+/**
+ * Code: Uyen
+ * UI: Sam
+ */
 package com.example.assetmonitoring.ui.council
 
 import android.content.Intent
