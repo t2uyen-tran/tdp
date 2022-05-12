@@ -11,7 +11,7 @@
     <color name="beige">#FFF3E0</color>
     <color name="red">#F44336</color>
 
-    <color name="primaryColor">#dcedc8</color>
+    <color name="primaryColor">#bbdefb</color>
     <color name="primaryLightColor">#dbffff</color>
     <color name="primaryDarkColor">#75ccb9</color>
     <color name="secondaryColor">#b3e5fc</color>
@@ -20,5 +20,5 @@
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#000000</color>
 
-    <color name="buttonTint">#ffa726</color>
+    <color name="buttonTint">#ffcc80</color>
 </resources>

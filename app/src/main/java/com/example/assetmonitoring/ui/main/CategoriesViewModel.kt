@@ -13,28 +13,28 @@ class CategoriesViewModel @Inject constructor() : ViewModel() {
     var currentIndex = 0
 
     val footpathItems = mutableListOf("Potholes",
-        "Rough surfaces",
-        "Dislodged or loose bricks and pavers",
-        "Lifted or broken slabs",
-        "Weeds growing through the footpath",
-        "Raised wooden edging",
-        "Tripping or falling hazard")
+        "1. Rough surfaces",
+        "2. Dislodged or loose bricks and pavers",
+        "3. Lifted or broken slabs",
+        "4. Weeds growing through the footpath",
+        "5. Raised wooden edging",
+        "6. Other")
 
     val roadItems = mutableListOf("Line marking",
-        "Falling tree",
-        "Oil on road",
-        "Pothole and edge-break repairs",
-        "Glass or debris on the road",
-        "Damaged or missing signs",
-        "Dumped rubbish")
+        "1. Falling tree",
+        "2. Oil on road",
+        "3. Pothole and edge-break repairs",
+        "4. Glass or debris on the road",
+        "5. Damaged or missing signs",
+        "6. Other")
 
     val binItems = mutableListOf("Line marking",
-        "Falling tree",
-        "Oil on road",
+        "1. Falling tree",
+        "2. Oil on road",
         "Pothole and edge-break repairs",
         "Glass or debris on the road",
         "Damaged or missing signs",
-        "Dumped rubbish")
+        "Other")
 
     val busstopItems = mutableListOf("Line marking",
         "Falling tree",
@@ -42,7 +42,7 @@ class CategoriesViewModel @Inject constructor() : ViewModel() {
         "Pothole and edge-break repairs",
         "Glass or debris on the road",
         "Damaged or missing signs",
-        "Dumped rubbish")
+        "Other")
 
     private val categoryBank = listOf(
         Categories(R.drawable.roadimage, R.string.photo1Name, R.string.photo1ManagerID, 1, roadItems),

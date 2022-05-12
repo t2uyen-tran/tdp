@@ -11,33 +11,16 @@
     <include layout="@layout/titlebar"/>
 
     <!-- Getting User Input for Address -->
-    <LinearLayout
-        android:layout_width="match_parent"
+
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/smallTextView"
-            android:textStyle="bold"
-            android:text="*"
-            android:textColor="@color/red"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="left"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/smallTextView"
-            android:textStyle="bold"
-            android:text="Location of the issue:"
-            android:layout_marginLeft="5dp"
-            android:layout_gravity="left"/>
-
-    </LinearLayout>
+        style="@style/smallTextView"
+        android:textStyle="bold"
+        android:text="Location of the issue:"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="left"/>
 
     <EditText
         android:id="@+id/addressInput_ET"
@@ -99,7 +82,7 @@
         android:inputType="textMultiLine"
         android:maxLength="500"
         android:layout_marginTop="5dp"
-        android:hint="In 500 characters..."    />
+        android:hint="No more than 500 characters..."    />
 
 
     <!-- Getting User Input for User contact details if wants to be notified of updates -->
