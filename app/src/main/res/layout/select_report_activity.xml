@@ -163,7 +163,7 @@
             android:textColor="@color/secondaryTextColor" />
 
         <Button
-            android:id="@+id/generateReport_button"
+            android:id="@+id/displayReport_button"
             style="@style/normalTextView"
             android:layout_width="match_parent"
             android:layout_marginRight="15dp"

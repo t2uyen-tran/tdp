@@ -49,6 +49,14 @@ class SelectReportActivity : AppCompatActivity() {
             finish()
         }
 
+        //SL: click "Display Report" button to go to the "DisplayReportActivity" page
+        val displayReportButton: Button = findViewById(R.id.displayReport_button)
+        displayReportButton.setOnClickListener {
+            //SL: go to the DisplayReportActivity
+            startActivity(Intent(this, DisplayReportActivity::class.java))
+            finish()
+        }
+
 
     }
 

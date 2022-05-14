@@ -10,206 +10,215 @@
 
     <include layout="@layout/titlebar"/>
 
-    <LinearLayout
-        android:id="@+id/firstLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
 
 
     <TextView
         android:id="@+id/update_an_issue_textV"
-        style="@style/bigTextView"
+        style="@style/normalTextView"
         android:maxLines="1"
         android:text="@string/update_an_issue"
+        android:layout_marginBottom="5dp"
         />
+
+    <include layout="@layout/outstanding_item"/>
 
     <TextView
-        android:id="@+id/status_layout"
-        android:layout_width="wrap_content"
-        style="@style/normalTextView"
-        android:maxLines="2"
-        android:text="Status"
-        android:layout_marginLeft="50dp"
-        android:layout_gravity="left"
-        android:layout_marginTop="100dp"
-        />
-
-    <RadioGroup
-        android:id="@+id/radioButton_status"
-        android:layout_width="wrap_content"
+        android:id="@+id/address_TV"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_gravity="left">
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingStart="2dp"
+        style="@style/normalTextView"
+        android:gravity="left"
+        android:inputType="textMultiLine"
+        android:maxLength="60"
+        android:hint="Location of the selected Case"    />
 
-        <RadioButton
-            android:id="@+id/radioButton1_status"
-            android:layout_width="wrap_content"
+
+    <TextView
+        android:id="@+id/description_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:paddingStart="2dp"
+        style="@style/smallTextView"
+        android:gravity="left"
+        android:inputType="textMultiLine"
+        android:hint="Description provided for the selected Case"    />
+
+
+    <!-- SL: two groups of radio button for the worker to choose to update the case -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:weightSum="2">
+
+        <!-- first group for "Status"-->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="In Progress"
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:checked="true"
-            android:minHeight="0dp"
-        />
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1">
 
-        <RadioButton
-            android:id="@+id/radioButton2_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wait for third party"
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:checked="false"
-            android:minHeight="0dp"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                style="@style/smallTextView"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:text="@string/status"
+                android:layout_gravity="left"
+                android:gravity="bottom"/>
 
-        <RadioButton
-            android:id="@+id/radioButton3_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Resolved"
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:checked="false"
-            android:minHeight="0dp"
-            />
-        </RadioGroup>
-
-
-        <TextView
-            android:id="@+id/resolve_layout"
-            android:layout_width="wrap_content"
-            style="@style/normalTextView"
-            android:maxLines="2"
-            android:text="Expected time to resolve"
-            android:layout_marginLeft="50dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="20dp"
-            />
-
-        <RadioGroup
-            android:id="@+id/radioButton_resolve"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_gravity="left">
-
-            <RadioButton
-                android:id="@+id/radioButton1_resolve"
+            <RadioGroup
+                android:id="@+id/radioButton_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1 to 2 days"
-                android:textColor="#000000"
-                android:textSize="15dp"
-                android:checked="true"
-                android:minHeight="0dp"
+                android:layout_gravity="left">
+
+                <RadioButton
+                    android:id="@+id/radioButton1_status"
+                    style="@style/radioButtonStyle"
+                    android:text="In Progress"
+                    android:checked="true"
                 />
 
-            <RadioButton
-                android:id="@+id/radioButton2_resolve"
+                <RadioButton
+                    android:id="@+id/radioButton2_status"
+                    style="@style/radioButtonStyle"
+                    android:text="Wait for third party"
+                    android:checked="false"
+                    />
+
+                <RadioButton
+                    android:id="@+id/radioButton3_status"
+                    style="@style/radioButtonStyle"
+                    android:text="Resolved"
+                    android:checked="false"
+                    />
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- second group for Expected time to resolve -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 to 5 days"
-                android:textColor="#000000"
-                android:textSize="15dp"
-                android:checked="false"
-                android:minHeight="0dp"
-                />
+                style="@style/smallTextView"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:text="Expected resolve time"
+                android:layout_gravity="left"
+                android:gravity="bottom"/>
 
-            <RadioButton
-                android:id="@+id/radioButton3_resolve"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Over 5 days"
-                android:textColor="#000000"
-                android:textSize="15dp"
-                android:checked="false"
-                android:minHeight="0dp"
-                />
-        </RadioGroup>
+                <RadioGroup
+                    android:id="@+id/radioButton_resolve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left" >
 
+                    <RadioButton
+                        android:id="@+id/radioButton1_resolve"
+                        style="@style/radioButtonStyle"
+                        android:text="1 to 2 days"
+                        android:checked="true"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2_resolve"
+                        style="@style/radioButtonStyle"
+                        android:text="2 to 5 days"
+                        android:checked="false"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radioButton3_resolve"
+                        style="@style/radioButtonStyle"
+                        android:text="Over 5 days"
+                        android:checked="false"
+                        />
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Input Reason for over 5 days -->
         <TextView
             android:id="@+id/reason_layout"
             android:layout_width="wrap_content"
             style="@style/normalTextView"
-            android:maxLines="2"
             android:text="Reason for over 5 days"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="15dp"
             android:layout_gravity="left"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             />
+
         <EditText
             android:layout_width="fill_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/shape" />
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/edit_text_border"
+            style="@style/smallTextView"
+            android:gravity="left"
+            android:inputType="textMultiLine"
+            android:hint="@string/input_character_limit" />
 
-    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/submitUpdate_button"
+        style="@style/normalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/buttonTint"
+        android:text="Submit Update"
+        android:textColor="@color/secondaryTextColor"
+        />
 
     <LinearLayout
-        android:id="@+id/secondLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:orientation="horizontal" >
-
-
-        <Button
-            android:id="@+id/submit"
-            style="@style/normalTextView"
-            android:backgroundTint="@color/buttonTint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="50dp"
-            android:enabled="false"
-            android:text="Submit"
-            android:textColor="@color/secondaryTextColor"
-            />
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <Button
-            android:id="@+id/cancel"
-            style="@style/normalTextView"
-            android:backgroundTint="@color/buttonTint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="110dp"
-            android:enabled="false"
-            android:text="Cancel"
-            android:textColor="@color/secondaryTextColor"
-            />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/thirdLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:orientation="horizontal" >
-
-        <Button
+            android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:layout_marginLeft="15dp"
+            android:gravity="left"
             android:text="@string/back"
             style="@style/normalTextView"
             android:textColor="@color/secondaryTextColor"
-            />
+            android:layout_weight="1"/>
+
+
 
         <Button
+            android:id="@+id/goToReport_button"
+            style="@style/normalTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:layout_marginRight="15dp"
             android:text="@string/report"
-            style="@style/normalTextView"
             android:textColor="@color/secondaryTextColor"
-            android:layout_marginLeft="195dp"
-            />
+            android:gravity="right"
+            android:layout_weight="1"/>
+
 
     </LinearLayout>
 

@@ -15,6 +15,7 @@
         android:id="@+id/greetingWithWorkerName_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         style="@style/normalTextView"
         android:maxLines="2"
         android:hint="Hi WorkerName!" />
@@ -23,28 +24,41 @@
         style="@style/smallTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="These are outstanding issues for your action" />
+        android:text="Outstanding cases for your action"
+        android:layout_marginBottom="15dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/red"
-        android:text="Issues in Red - unresolved for > 7 days after first reported" />
+        style="@style/smallTextView"
+        android:layout_gravity="left"
+        android:layout_marginLeft="15dp"
+        android:text="Select a case to view or update" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/outstandingItems_RV"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="430dp"
+        />
+
+    <Button
+        android:id="@+id/generateReport_button"
+        style="@style/normalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/buttonTint"
+        android:text="Generate Report"
+        android:textColor="@color/secondaryTextColor"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <Button
             android:id="@+id/back_button"
@@ -55,24 +69,21 @@
             android:gravity="left"
             android:text="@string/back"
             style="@style/normalTextView"
-            android:textColor="@color/secondaryTextColor" />
+            android:textColor="@color/secondaryTextColor"
+            android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/generateReport_button"
+            android:id="@+id/logout_buton"
             style="@style/normalTextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
             android:layout_marginRight="15dp"
-            android:layout_marginLeft="40dp"
-            android:layout_height="48dp"
-            android:backgroundTint="@color/buttonTint"
-            android:text="Generate Report"
+            android:text="@string/logout"
             android:textColor="@color/secondaryTextColor"
-            />
-
-
-
+            android:gravity="right"
+            android:layout_weight="1"/>
     </LinearLayout>
-
 
 
 </LinearLayout>

@@ -1,8 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primaryColor"
+    tools:context=".ui.council.DisplayReportActivity">
 
     <include layout="@layout/titlebar"/>
+
+    <!-- Report Start Date Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <!-- 2 columns: label and data -->
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:gravity="left"
+            style="@style/smallTextView"
+            android:text="Start Date" />
+
+        <TextView
+            android:id="@+id/startDate_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textStyle="bold"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            style="@style/smallTextView"
+            android:text="12 May 2022" />
+    </LinearLayout>
+
+    <!-- Selected Status -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <!-- 2 columns: label and data -->
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:gravity="left"
+            style="@style/smallTextView"
+            android:text="Status" />
+
+        <TextView
+            android:id="@+id/selectedStatus_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textStyle="bold"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            style="@style/smallTextView"
+            android:text="In Progress, Wait for third party" />
+    </LinearLayout>
+
+    <!-- Selected Status -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <!-- 2 columns: label and data -->
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:gravity="left"
+            style="@style/smallTextView"
+            android:text="Category" />
+
+        <TextView
+            android:id="@+id/selectedCategory_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:textStyle="bold"
+            android:gravity="left"
+            android:paddingLeft="10dp"
+            style="@style/smallTextView"
+            android:text="Road, Footpath" />
+    </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reportedItems_RV"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_marginTop="15dp"
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginLeft="15dp"
+            android:gravity="left"
+            android:text="@string/back"
+            style="@style/normalTextView"
+            android:textColor="@color/secondaryTextColor"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/logout_buton"
+            style="@style/normalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="15dp"
+            android:text="@string/logout"
+            android:textColor="@color/secondaryTextColor"
+            android:gravity="right"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -12,7 +12,7 @@ data class Cases(
     val item: String,
     val lastUpdated: Date,
     val location: String,
-    val photoURL: String,
+    val photoURL: Int,          //for the time being the Int is for the ID number in Resource - should be URL once Database is set up
     val desc: String,
     val status: String,
     val expectedTimeToResolve: String,

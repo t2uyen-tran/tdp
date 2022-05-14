@@ -2,6 +2,7 @@ package com.example.assetmonitoring.ui.main
 //SL
 
 import androidx.lifecycle.ViewModel
+import com.example.assetmonitoring.R
 import java.util.*
 
 class CasesViewModel: ViewModel() {
@@ -12,10 +13,10 @@ class CasesViewModel: ViewModel() {
     private val caseBank = listOf(
         Cases(1000001,
             "Footpath",
-            "Potholes",
+            "Rough surfaces",
             Date(5/2/2022),
             "9 Sorrento St., Broadmeadows 3047",
-            "",
+            R.drawable.grandcanyon,
             "",
             "In Progress",
             "2 to 5 days",
@@ -30,7 +31,7 @@ class CasesViewModel: ViewModel() {
             "Raised wooden edging",
             Date(5/13/2022),
             "118 Pascoe Vale Rd., Broadmeadows 3047",
-            "",
+            R.drawable.noimage,
             "",
             "In Progress",
             "2 to 5 days",
@@ -45,7 +46,7 @@ class CasesViewModel: ViewModel() {
             "Oil on road",
             Date(5/14/2022),
             "7 Nathalia St., Broadmeadows 3047",
-            "",
+            R.drawable.grandcanyon,
             "",
             "Resolved",
             "2 to 5 days",
@@ -60,9 +61,24 @@ class CasesViewModel: ViewModel() {
             "Lifted or broken slabs",
             Date(5/10/2022),
             "3 Rau Crt., Broadmeadows 3047",
-            "",
+            R.drawable.grandcanyon,
             "",
             "Wait for third party",
+            "2 to 5 days",
+            1,
+            "",
+            "To be assigned",
+            "",
+            NotifyUpdate = false,
+            ""),
+        Cases(1000005,
+            "Road",
+            "Falling tree",
+            Date(5/10/2022),
+            "7 Rau Crt., Broadmeadows 3047",
+            R.drawable.grandcanyon,
+            "",
+            "In Progress",
             "2 to 5 days",
             1,
             "",

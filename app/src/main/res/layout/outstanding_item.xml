@@ -1,124 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--SL: list item view for the RecyclerList View-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/outstandingListItem_LO"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
+    android:layout_marginBottom="15dp"
     android:layout_marginLeft="15dp"
     android:layout_marginRight="15dp"
     android:orientation="vertical">
 
-    <!--Reported Issue ID-->
+
+    <TextView
+        android:id="@+id/caseID_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/normalTextView"
+        android:background="@color/beige"
+        android:gravity="left"
+        android:paddingLeft="5dp"
+        android:text="1000008" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
         android:orientation="horizontal"
-        android:weightSum="3">
+        >
 
-        <TextView
-            style="@style/reportRowHeader"
-            android:text="Reported Issue ID"/>
+        <ImageView
+            android:id="@+id/casePhoto_IV"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/grandcanyon" />
 
-        <TextView
-            android:id="@+id/caseID_TV"
-            style="@style/reportRowValue"
-            android:text="ddd"/>
+
+        <!-- Narrative section next to image -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:orientation="vertical">
+
+
+
+            <!-- Category -->
+            <TextView
+                android:id="@+id/caseCategory_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/reportRowValue"
+                android:text="Bus Stop"
+                android:paddingLeft="10dp"/>
+
+
+            <!--Item -->
+            <TextView
+                android:id="@+id/caseItem_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/reportRowValue"
+                android:text="Pothole and edge-break repairs"
+                android:paddingLeft="10dp"/>
+
+
+
+            <!--Time lapsed since last update-->
+
+            <TextView
+                android:id="@+id/caseLastUpdatedOn_TV"
+                style="@style/reportRowValue"
+                android:layout_marginTop="2dp"
+                android:text="dd mmm yyyy hh:mm:ss"
+                android:paddingLeft="10dp"/>
+
+        </LinearLayout>
+
     </LinearLayout>
-
-    <!--Category-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <TextView
-            style="@style/reportRowHeader"
-            android:text="Category"/>
-
-        <TextView
-            android:id="@+id/caseCategory_TV"
-            style="@style/reportRowValue"
-            android:text="ddd" />
-    </LinearLayout>
-
-    <!--Category Item-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <TextView
-            style="@style/reportRowHeader"
-            android:text="Item"/>
-
-        <TextView
-            android:id="@+id/caseItem_TV"
-            style="@style/reportRowValue"
-            android:text="ddd" />
-    </LinearLayout>
-
-    <!--Status-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <TextView
-            style="@style/reportRowHeader"
-            android:text="@string/status"/>
-
-        <TextView
-            android:id="@+id/caseStatus_TV"
-            style="@style/reportRowValue"
-            android:text="ddd" />
-    </LinearLayout>
-
-    <!--Location-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <TextView
-            style="@style/reportRowHeader"
-            android:text="Location"
-            android:lines="2"/>
-
-        <TextView
-            android:id="@+id/caseLocation_TV"
-            style="@style/reportRowValue"
-            android:text="ddd" />
-    </LinearLayout>
-
-    <!--Time lapsed since last update-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
-        android:weightSum="3">
-
-        <TextView
-            style="@style/reportRowHeader"
-            android:text="Last Updated On"
-            android:lines="2"/>
-
-        <TextView
-            android:id="@+id/caseLastUpdatedOn_TV"
-            style="@style/reportRowValue"
-            android:text="ddd" />
-    </LinearLayout>
-
 
 
 </LinearLayout>
