@@ -6,6 +6,8 @@ plugins {
 
     //new additions
     id 'org.jetbrains.kotlin.plugin.parcelize'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
@@ -54,6 +56,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+    // This is for place picker
+    implementation 'com.google.android.libraries.places:places:2.6.0'
 
     implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
     implementation 'com.jakewharton.timber:timber:5.0.1'
@@ -70,6 +74,9 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+
+    // This is for getting the location
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 
     implementation 'com.karumi:dexter:6.2.3'
     testImplementation 'junit:junit:4.13.2'

@@ -73,6 +73,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/edit_text_border"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:gravity="left"
             android:hint="Enter location"
             android:inputType="textMultiLine"
@@ -90,11 +92,24 @@
             android:layout_gravity="left"/>
 
 
+        <TextView
+            android:id="@+id/tv_select_current_location"
+            android:layout_width="395dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/shape_image_view_border"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="SELECT CURRENT LOCATION"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp" />
+
         <fragment
             android:id="@+id/map"
             class="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="296dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="15dp"
