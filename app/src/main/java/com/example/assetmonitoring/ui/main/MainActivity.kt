@@ -44,13 +44,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SignInActivity::class.java))
         }
 
-        //SL: This is for the Test button to test the Council OutstandingActivity - to be deleted after
-        val testButton: Button = findViewById(R.id.test_buton)
-        testButton.setOnClickListener {
-            //SL: go to Council OutstandingActivity page to test as "Sign In" activity not ready
-            startActivity(Intent(this@MainActivity, OutstandingActivity::class.java))
-            finish()
-        }
+    //UT: comment out this button after finishing the authentication function for council worker
+    //SL: This is for the Test button to test the Council OutstandingActivity - to be deleted after
+//        val testButton: Button = findViewById(R.id.test_button)
+//        testButton.setOnClickListener {
+//            //SL: go to Council OutstandingActivity page to test as "Sign In" activity not ready
+//            startActivity(Intent(this@MainActivity, OutstandingActivity::class.java))
+//            finish()
+//        }
     }
 
     //SL: this function uses the index number to retrieve the details of the selected category from the CategoriesViewModel,

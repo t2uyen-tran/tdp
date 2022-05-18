@@ -1,5 +1,8 @@
 package com.example.assetmonitoring.ui
 
+/**
+ * UT: To launch the activity based on authentication result
+ */
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
