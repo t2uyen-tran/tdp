@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.assetmonitoring.R
 import com.example.assetmonitoring.model.Categories
 import com.example.assetmonitoring.ui.council.OutstandingActivity
+import com.example.assetmonitoring.util.GetAddressFromLatLng
 import com.facebook.appevents.suggestedevents.ViewOnClickListener
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -52,13 +53,12 @@ private const val TAG = "ListCategoryItems"
 
 class ListCategoryItems : AppCompatActivity(), OnMapReadyCallback, View.OnClickListener {
     private lateinit var mapET: EditText
+    private var a: String? = null
     private lateinit var curTV: TextView
     private lateinit var mMap: GoogleMap
     private lateinit var mFusedLocationClient: FusedLocationProviderClient // A fused location client variable which is further user to get the user's current location
     private var mLatitude: Double = 0.0 // A variable which will hold the latitude value.
     private var mLongitude: Double = 0.0 // A variable which will hold the longitude value.
-    private var m1Latitude:  Double = 0.0 // A variable which will hold the latitude value.
-    private var m1Longitude: Double = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onStart()called")
@@ -156,48 +156,71 @@ class ListCategoryItems : AppCompatActivity(), OnMapReadyCallback, View.OnClickL
                     e.printStackTrace()
                 }
             }
-//            R.id.tv_select_current_location -> {
-//                if (!isLocationEnabled()) {
-//                    Toast.makeText(
-//                        this,
-//                        "Your location provider is turned off. Please turn it on.",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//
-//                    // This will redirect you to settings from where you need to turn on the location provider.
-//                    val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-//                    startActivity(intent)
-//                } else {
-//                    // For Getting current location of user please have a look at below link for better understanding
-//                    // https://www.androdocs.com/kotlin/getting-current-location-latitude-longitude-in-android-using-kotlin.html
-//                    Dexter.withActivity(this)
-//                        .withPermissions(
-//                            Manifest.permission.ACCESS_FINE_LOCATION,
-//                            Manifest.permission.ACCESS_COARSE_LOCATION
-//                        )
-//                        .withListener(object : MultiplePermissionsListener {
-//                            override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
-//                                if (report!!.areAllPermissionsGranted()) {
-//
-//                                   requestNewLocationData()
-//                                }
-//                            }
-//
-//                            override fun onPermissionRationaleShouldBeShown(
-//                                permissions: MutableList<PermissionRequest>?,
-//                                token: PermissionToken?
-//                            ) {
-//                                Toast.makeText(
-//                                    this@ListCategoryItems,
-//                                    "2",
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            }
-//                        }).onSameThread()
-//                        .check()
-//                }
-//            }
+            R.id.tv_select_current_location -> {
+                if (!isLocationEnabled()) {
+                    Toast.makeText(
+                        this,
+                        "Your location provider is turned off. Please turn it on.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    // This will redirect you to settings from where you need to turn on the location provider.
+                    val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                    startActivity(intent)
+                } else {
+                    // For Getting current location of user please have a look at below link for better understanding
+                    // https://www.androdocs.com/kotlin/getting-current-location-latitude-longitude-in-android-using-kotlin.html
+                    Dexter.withActivity(this)
+                        .withPermissions(
+                            Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
+                        )
+                        .withListener(object : MultiplePermissionsListener {
+                            override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
+                                if (report!!.areAllPermissionsGranted()) {
+
+                                   requestNewLocationData()
+                                    val mapFragment = supportFragmentManager
+                                        .findFragmentById(R.id.map) as SupportMapFragment
+                                    mapFragment.getMapAsync(this@ListCategoryItems)
+                                }
+                            }
+
+                            override fun onPermissionRationaleShouldBeShown(
+                                permissions: MutableList<PermissionRequest>?,
+                                token: PermissionToken?
+                            ) {
+                                showRationalDialogForPermissions()
+                            }
+                        }).onSameThread()
+                        .check()
+                }
+            }
         }
+    }
+
+    /**
+     * A function used to show the alert dialog when the permissions are denied and need to allow it from settings app info.
+     */
+    private fun showRationalDialogForPermissions() {
+        AlertDialog.Builder(this)
+            .setMessage("It Looks like you have turned off permissions required for this feature. It can be enabled under Application Settings")
+            .setPositiveButton(
+                "GO TO SETTINGS"
+            ) { _, _ ->
+                try {
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", packageName, null)
+                    intent.data = uri
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    e.printStackTrace()
+                }
+            }
+            .setNegativeButton("Cancel") { dialog,
+                                           _ ->
+                dialog.dismiss()
+            }.show()
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -207,11 +230,8 @@ class ListCategoryItems : AppCompatActivity(), OnMapReadyCallback, View.OnClickL
                 val place: Place = Autocomplete.getPlaceFromIntent(data!!)
 
                 mapET.setText(place.address)
-                m1Latitude = place.latLng!!.latitude
-                Log.e("Current Latitude111", "$m1Latitude")
-
-                m1Longitude = place.latLng!!.longitude
-            Log.e("Current Latitude222", "$m1Longitude")
+                mLatitude = place.latLng!!.latitude
+                mLongitude = place.latLng!!.longitude
             val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
             mapFragment.getMapAsync(this)
@@ -220,9 +240,9 @@ class ListCategoryItems : AppCompatActivity(), OnMapReadyCallback, View.OnClickL
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
+        mMap.clear()
         // Add a marker in Sydney and move the camera
-        val location = LatLng(m1Latitude, m1Longitude)
+        val location = LatLng(mLatitude, mLongitude)
         mMap.addMarker(MarkerOptions().position(location))
         mMap.moveCamera((CameraUpdateFactory.newLatLng(location)))
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL)
@@ -253,9 +273,8 @@ class ListCategoryItems : AppCompatActivity(), OnMapReadyCallback, View.OnClickL
 
         val mLocationRequest = LocationRequest()
         mLocationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        mLocationRequest.interval = 0
-        mLocationRequest.fastestInterval = 0
-        mLocationRequest.numUpdates = 1
+        mLocationRequest.interval = 10000
+        mLocationRequest.fastestInterval = 5000
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         mFusedLocationClient.requestLocationUpdates(
@@ -274,7 +293,25 @@ class ListCategoryItems : AppCompatActivity(), OnMapReadyCallback, View.OnClickL
             Log.e("Current Latitude", "$mLatitude")
             mLongitude = mLastLocation.longitude
             Log.e("Current Longitude", "$mLongitude")
+            // TODO(Step 2: Call the AsyncTask class fot getting an address from the latitude and longitude.)
+            // START
+            val addressTask =
+                GetAddressFromLatLng(this@ListCategoryItems, mLatitude, mLongitude)
 
+            addressTask.setAddressListener(object :
+                GetAddressFromLatLng.AddressListener {
+                override fun onAddressFound(address: String?) {
+                    Log.e("Address ::", "" + address)
+                    a = address
+                }
+
+                override fun onError() {
+                    Log.e("Get Address ::", "Something is wrong...")
+                }
+            })
+
+            addressTask.getAddress()
+            // END
 
         }
     }

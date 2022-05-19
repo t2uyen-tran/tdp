@@ -52,7 +52,9 @@
                 android:divider="@color/primaryColor"
                 android:dividerHeight="2dp"
                 android:nestedScrollingEnabled="true"
-                android:text="Choose one" />
+                android:text="Choose one"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
