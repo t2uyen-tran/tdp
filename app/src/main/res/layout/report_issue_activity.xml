@@ -13,52 +13,59 @@
     <!-- Getting User Input for Address -->
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/smallTextView"
-        android:textStyle="bold"
-        android:text="Location of the issue:"
-        android:layout_marginLeft="15dp"
-        android:layout_gravity="left"/>
-
-    <EditText
-        android:id="@+id/addressInput_ET"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/edit_text_border"
-        android:paddingStart="2dp"
-        style="@style/smallTextView"
-        android:gravity="left"
-        android:inputType="textMultiLine"
-        android:maxLength="60"
-        android:layout_marginTop="5dp"
-        android:hint="Enter location"    />
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/smallTextView"
-        android:textStyle="bold"
-        android:text="Or select the address by dragging the map pin"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="left"/>
+        <TextView
+            android:id="@+id/uploadOrTakePhoto_textV"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            style="@style/normalTextView"
+            android:text="Photo:"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="left"/>
+
+        <Button
+            android:id="@+id/uploadBtn"
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="40dp"
+            android:backgroundTint="@color/beige"
+            android:text="Upload"
+            style="@style/normalTextView"
+            android:textColor="@color/secondaryTextColor" />
+
+        <ImageButton
+            android:id="@+id/camera"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/beige"
+            android:textColor="@color/secondaryTextColor"
+            app:srcCompat="@drawable/camera" />
 
 
-    <fragment
-        android:id="@+id/map"
-        class="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="5dp"
-        android:scaleType="fitXY" />
+    </LinearLayout>
 
     <!-- Getting User Input for Description of the Issue -->
+
+    <ImageView
+        android:id="@+id/iv_place_image"
+        android:layout_width="383dp"
+        android:layout_height="215dp"
+        android:layout_marginLeft="10dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/grandcanyon" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -113,12 +120,12 @@
     </LinearLayout>
 
     <TextView
+        style="@style/smallTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/smallTextView"
-        android:text="of any updates regarding this issue)"
+        android:layout_gravity="left"
         android:layout_marginLeft="15dp"
-        android:layout_gravity="left"/>
+        android:text="of any updates regarding this issue)" />
 
     <LinearLayout
         android:layout_width="match_parent"

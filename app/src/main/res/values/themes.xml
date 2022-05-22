@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.AssetMonitoring" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/beige</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/beige</item>
         <item name="colorOnPrimary">@color/primaryTextColor</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
