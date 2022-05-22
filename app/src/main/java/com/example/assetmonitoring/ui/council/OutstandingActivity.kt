@@ -32,8 +32,8 @@ class OutstandingActivity : AppCompatActivity() {
 
     //SL: associate CasesViewModel with the UI controller by creating a reference to the
     //SL: CasesViewModel inside the UI controller
-    private val casesViewModel: CasesViewModel by lazy {
-        ViewModelProvider(this).get(CasesViewModel::class.java)
+    private val casesViewModel: CasesNotUsedViewModel by lazy {
+        ViewModelProvider(this).get(CasesNotUsedViewModel::class.java)
     }
 
     private lateinit var database: DatabaseReference
@@ -61,13 +61,13 @@ class OutstandingActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.outstandingItems_RV)
 
         //SL: get the list of outstanding items from casesViewModel to be displayed on the RecyclerView
-        var outstandingItemList = mutableListOf<Cases>()
+        var outstandingItemList = mutableListOf<CasesNotUsed>()
         var caseIndex = 0
         var statusText = ""
         //SL: the hardcoded "4" should dynamically change to the total number of cases once Database is ready
         while(caseIndex < 5) {
             casesViewModel.currentIndex = caseIndex
-            var case: Cases = casesViewModel.currCase
+            var case: CasesNotUsed = casesViewModel.currCase
             //SL: check status of the case to pick up only those that are not "Resolved"
             statusText = case.status
             if (statusText != "Resolved") {
