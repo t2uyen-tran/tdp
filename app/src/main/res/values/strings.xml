@@ -60,8 +60,8 @@
 
     <!-- SL: Options for "Status" as a report parameter in "display_report_activity" -->
     <string name="status">Status</string>
-    <string name="status1">In Progress</string>
-    <string name="status2">Wait for third party</string>
+    <string name="status1">New Case</string>
+    <string name="status2">In Progress</string>
     <string name="status3">Resolved</string>
 
     <!-- SL: Options for "Category" as a report parameter in "display_report_activity" -->

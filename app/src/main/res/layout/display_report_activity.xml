@@ -16,15 +16,15 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:weightSum="2">
 
         <!-- 2 columns: label and data -->
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="92dp"
             android:layout_height="wrap_content"
-            android:paddingRight="10dp"
+            android:paddingRight="5dp"
             android:gravity="left"
             style="@style/smallTextView"
             android:text="Start Date" />
@@ -47,15 +47,15 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal"
         android:weightSum="2">
 
         <!-- 2 columns: label and data -->
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="92dp"
             android:layout_height="wrap_content"
-            android:paddingRight="10dp"
+            android:paddingRight="5dp"
             android:gravity="left"
             style="@style/smallTextView"
             android:text="Status" />
@@ -78,15 +78,15 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal"
         android:weightSum="2">
 
         <!-- 2 columns: label and data -->
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="92dp"
             android:layout_height="wrap_content"
-            android:paddingRight="10dp"
+            android:paddingRight="5dp"
             android:gravity="left"
             style="@style/smallTextView"
             android:text="Category" />
@@ -108,7 +108,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reportedItems_RV"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="460dp"
         android:layout_marginTop="15dp"
         />
 

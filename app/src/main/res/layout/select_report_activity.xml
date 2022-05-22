@@ -78,6 +78,7 @@
                     android:id="@+id/status1_checkBox"
                     style="@style/checkBoxStyle"
                     android:text="@string/status1"
+                    android:checked="true"
                     tools:layout_editor_absoluteX="34dp"
                     tools:layout_editor_absoluteY="524dp" />
 
@@ -118,6 +119,7 @@
                     android:id="@+id/category1_checkBox"
                     style="@style/checkBoxStyle"
                     android:text="@string/photo1Name"
+                    android:checked="true"
                     tools:layout_editor_absoluteX="34dp"
                     tools:layout_editor_absoluteY="524dp" />
 

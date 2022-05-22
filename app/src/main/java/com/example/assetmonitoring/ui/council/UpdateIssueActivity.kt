@@ -4,10 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assetmonitoring.R
-import com.example.assetmonitoring.databinding.UpdateIssueActivityBinding
-import com.example.assetmonitoring.ui.main.ReportedItemListAdapter
 
 class UpdateIssueActivity : AppCompatActivity() {
 

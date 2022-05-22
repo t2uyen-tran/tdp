@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AssetMonitoring"
-        tools:ignore="ExtraText">
+        tools:ignore="ExtraText"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.main.ListCategoryItems"
             android:exported="false" />

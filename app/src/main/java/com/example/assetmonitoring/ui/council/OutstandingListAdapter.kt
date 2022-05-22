@@ -1,4 +1,4 @@
-package com.example.assetmonitoring.ui.main
+package com.example.assetmonitoring.ui.council
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,15 +7,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assetmonitoring.R
-import java.security.cert.PolicyNode
+import com.example.assetmonitoring.ui.main.CasesNotUsed
 
 //https://www.youtube.com/watch?v=dB9JOsVx-yY&list=PLQ9S01mirRdVvez1P38ksV8kGI8oSsMpL&index=2
 //SL: setup the ReclyerView Adapter to display a list of outstanding items on the worker landing page once successfully signed in
-class OutstandingListAdapter(var outstandingItemList: List<Cases>):
+class OutstandingListAdapter(var outstandingItemList: List<CasesNotUsed>):
     RecyclerView.Adapter<OutstandingListAdapter.OutstandingListViewHolder>() {
 
 
-    lateinit var mlistener: onItemClickListener
+    var mlistener: onItemClickListener? = null
 
     interface onItemClickListener {
         fun onItemClick(position: Int)
@@ -34,7 +34,7 @@ class OutstandingListAdapter(var outstandingItemList: List<Cases>):
 
 
     override fun onBindViewHolder(holder: OutstandingListViewHolder, position: Int) {
-        val currentItemData: Cases = outstandingItemList[position]
+        val currentItemData: CasesNotUsed = outstandingItemList[position]
         holder.caseIDTV.text = outstandingItemList[position].caseID.toString()
         holder.casePhotoIV.setImageResource(outstandingItemList[position].photoURL)
         holder.caseCategoryTV.text = outstandingItemList[position].category
@@ -48,7 +48,7 @@ class OutstandingListAdapter(var outstandingItemList: List<Cases>):
         return outstandingItemList.size
     }
 
-    class OutstandingListViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
+    class OutstandingListViewHolder(itemView: View, listener: onItemClickListener?) : RecyclerView.ViewHolder(itemView){
         val caseIDTV: TextView = itemView.findViewById(R.id.caseID_TV)
         val casePhotoIV: ImageView = itemView.findViewById(R.id.casePhoto_IV)
         val caseCategoryTV: TextView = itemView.findViewById(R.id.caseCategory_TV)
@@ -59,7 +59,7 @@ class OutstandingListAdapter(var outstandingItemList: List<Cases>):
 
         init {
                 itemView.setOnClickListener{
-                    listener.onItemClick(adapterPosition)
+                    listener?.onItemClick(adapterPosition)
             }
         }
 

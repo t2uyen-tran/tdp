@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import java.util.*
 
 @Parcelize
-data class Cases(
+data class CasesNotUsed(
     val caseID: Int,
     val category: String,
     val item: String,

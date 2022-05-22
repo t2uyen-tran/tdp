@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--SL: list item view for the RecyclerList View-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/outstandingListItem_LO"
+    android:id="@+id/displayReportListItem_LO"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="15dp"
@@ -47,6 +47,7 @@
             android:id="@+id/caseItem_TV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
             style="@style/reportRowValue"
             android:text="Pothole and edge-break repairs" />
     </LinearLayout>
@@ -71,6 +72,7 @@
             android:id="@+id/caseUpdateDate_TV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
             style="@style/reportRowValue"
             android:text="dd mmm yyyy hh:mm:ss" />
     </LinearLayout>
@@ -95,6 +97,7 @@
             android:id="@+id/workerName_TV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
             style="@style/reportRowValue"
             android:text="David Walker" />
     </LinearLayout>
@@ -104,6 +107,7 @@
         android:id="@+id/caseStatus_TV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         style="@style/reportRowValue"
         android:text="Wait for third party" />
 
@@ -114,7 +118,7 @@
     <TextView
         android:id="@+id/caseExpectedTimeToResolve_TV"
         style="@style/reportRowValue"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="1dp"
         android:text="1 to 2 days" />
 
 
