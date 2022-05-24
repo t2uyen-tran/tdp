@@ -18,8 +18,9 @@ class DataTestActivity : AppCompatActivity() {
 
         database = Firebase.database.reference
 
-        val displayCases: Boolean = true
+        val displayCases: Boolean = false
         val displayJobs: Boolean = false
+        val crossReferencing: Boolean = true
         var result = "ERROR"
 
         // DISPLAY CASES
@@ -71,7 +72,7 @@ class DataTestActivity : AppCompatActivity() {
                     findViewById<TextView>(R.id.textView).text = result
                 }
             }.addOnFailureListener {
-                result = "ERROR GETTING DATABASE"
+                result = "ERROR GETTING DATA"
 
                 findViewById<TextView>(R.id.textView).text = result
             }
@@ -99,7 +100,55 @@ class DataTestActivity : AppCompatActivity() {
 
                 findViewById<TextView>(R.id.textView).text = result
             }.addOnFailureListener {
-                result = "ERROR GETTING DATABASE"
+                result = "ERROR GETTING DATA"
+
+                findViewById<TextView>(R.id.textView).text = result
+            }
+        }
+
+        // CROSS REFERENCING DOCUMENTS
+        if (crossReferencing) {
+            // Get staff job by case ID
+            val referenceCaseID: String = "testCase2"
+
+            result = "Requesting job for case '$referenceCaseID'...\n"
+
+            database.child("jobs").get().addOnSuccessListener {
+                for (job in it.children) {
+                    if (job.child("case").value == referenceCaseID) {
+                        val jobID: String = job.key.toString()
+                        val staffID: String = job.child("sid").value.toString()
+
+                        result += "Job found!" +
+                                "Job ID: $jobID \n" +
+                                "Staff ID: $staffID \n\n" +
+                                "Requesting name of staff member...\n"
+
+                        // Get name of staff member from staff document
+                        database.child("staff").child(staffID).get().addOnSuccessListener {
+                            val firstName: String = it.child("firstName").value.toString()
+                            val lastName: String = it.child("lastName").value.toString()
+
+                            result += "The name of the staff member is '$firstName $lastName'"
+
+                            findViewById<TextView>(R.id.textView).text = result
+                        }.addOnFailureListener {
+                            result += "Could not find a staff member with ID '$staffID'"
+
+                            findViewById<TextView>(R.id.textView).text = result
+                        }
+
+                        findViewById<TextView>(R.id.textView).text = result
+
+                        return@addOnSuccessListener
+                    }
+                }
+
+                result += "ERROR: Could not find a job related to case '$referenceCaseID'"
+
+                findViewById<TextView>(R.id.textView).text = result
+            }.addOnFailureListener {
+                result += "ERROR GETTING DATA"
 
                 findViewById<TextView>(R.id.textView).text = result
             }
