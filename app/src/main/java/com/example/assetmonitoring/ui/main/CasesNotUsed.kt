@@ -22,4 +22,4 @@ data class CasesNotUsed(
     val userID: String,
     val NotifyUpdate: Boolean,
     val userEmail: String
-) : Parcelable {}
+) : Parcelable

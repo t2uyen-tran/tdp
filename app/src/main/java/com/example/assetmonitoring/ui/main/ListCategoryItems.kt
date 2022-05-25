@@ -279,7 +279,7 @@ class ListCategoryItems : AppCompatActivity(), OnMapReadyCallback, View.OnClickL
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         mFusedLocationClient.requestLocationUpdates(
             mLocationRequest, mLocationCallback,
-            Looper.myLooper()
+            Looper.myLooper()!!
         )
     }
 

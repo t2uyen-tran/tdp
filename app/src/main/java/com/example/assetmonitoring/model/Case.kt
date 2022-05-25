@@ -9,6 +9,6 @@ data class Case (
     val category: String,                       // The category this case belongs to
     val item: String,                           // The type of item the issue relates to
     val location: String,                       // The location this case refers to
-    val contributors: List<CaseContributor>,    // A list of contributors for this case
-    val status: String                          // The current status of a test
+    val contributors: List<CaseContributor> = emptyList(),    // A list of contributors for this case
+    val status: String,                          // The current status of a test
 ) : Parcelable

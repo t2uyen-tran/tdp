@@ -64,7 +64,23 @@
                 android:text="Pothole and edge-break repairs"
                 android:paddingLeft="10dp"/>
 
+            <!--Status -->
+            <TextView
+                android:id="@+id/caseStatus_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/reportRowValue"
+                android:text="Pothole and edge-break repairs"
+                android:paddingLeft="10dp"/>
 
+            <!--Location -->
+            <TextView
+                android:id="@+id/caseLocation_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/reportRowValue"
+                android:text="Pothole and edge-break repairs"
+                android:paddingLeft="10dp"/>
 
             <!--Time lapsed since last update-->
 
