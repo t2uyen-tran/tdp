@@ -80,7 +80,7 @@ class OutstandingActivity : AppCompatActivity() {
                         CaseContributor(
                             userID = contributorChild.key!!,
                             notify = contributorChild.child("notify").getValue<Boolean>()!!,
-                            date = Date(contributorChild.child("date").getValue<String>()?.toLong()!!),
+                            date = Date(contributorChild.child("date").getValue<String>()?.toLong()!!).time,
                             comment = contributorChild.child("comment").getValue<String>()!!,
                             photo = contributorChild.child("photo").getValue<String>()!!
                         )
