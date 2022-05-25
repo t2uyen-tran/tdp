@@ -15,6 +15,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class SelectReportActivity : AppCompatActivity() {
+    //SL: this activity is to allow a council worker to make selection as in what type of cases he/she want to view in a report by
+    //e.g. picking the startdate of the report from a datePicker, ticking check boxes for options in "category", as well as in "status"
 
     var selectedStatus = ArrayList<String>()
     var selectedCategory = ArrayList<String>()

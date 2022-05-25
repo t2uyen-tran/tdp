@@ -30,11 +30,6 @@ class ReportedItemListAdapter(var reportedItemList: List<ReportedCases>):
         return ReportedListViewHolder(itemView, mlistener)
     }
 
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReportedListViewHolder {
-//        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.outstanding_item, parent, false)
-//        return ReportedListViewHolder(itemView, mlistener)
-//    }
-
 
 
     override fun onBindViewHolder(holder: ReportedListViewHolder, position: Int) {
@@ -50,16 +45,7 @@ class ReportedItemListAdapter(var reportedItemList: List<ReportedCases>):
         holder.caseExpectedTimeToResolveTV.text = currentItemData.expectedTimeToResolve
     }
 
-//    override fun onBindViewHolder(holder: ReportedListViewHolder, position: Int) {
-//        val currentItemData: Cases = reportedItemList[position]
-//        holder.caseIDTV.text = reportedItemList[position].caseID.toString()
-//        holder.casePhotoIV.setImageResource(reportedItemList[position].photoURL)
-//        holder.caseCategoryTV.text = reportedItemList[position].category
-//        holder.caseItemTV.text = reportedItemList[position].item
-//        //holder.caseStatusTV.text = outstandingItemList[position].status
-//        //holder.caseLocationTV.text = outstandingItemList[position].location
-//        holder.caseLastUpdatedTV.text = reportedItemList[position].lastUpdated.toString()
-//    }
+
 
     override fun getItemCount(): Int {
         return reportedItemList.size
@@ -83,24 +69,6 @@ class ReportedItemListAdapter(var reportedItemList: List<ReportedCases>):
         }
 
     }
-
-//    class ReportedListViewHolder(itemView: View, listener: onItemClickListener?) : RecyclerView.ViewHolder(itemView){
-//        val caseIDTV: TextView = itemView.findViewById(R.id.caseID_TV)
-//        val casePhotoIV: ImageView = itemView.findViewById(R.id.casePhoto_IV)
-//        val caseCategoryTV: TextView = itemView.findViewById(R.id.caseCategory_TV)
-//        val caseItemTV: TextView = itemView.findViewById(R.id.caseItem_TV)
-//        //val caseStatusTV: TextView = itemView.findViewById(R.id.caseStatus_TV)
-//        //val caseLocationTV: TextView = itemView.findViewById(R.id.caseLocation_TV)
-//        val caseLastUpdatedTV: TextView = itemView.findViewById(R.id.caseLastUpdatedOn_TV)
-//
-//        init {
-//            itemView.setOnClickListener{
-//                listener?.onItemClick(adapterPosition)
-//            }
-//        }
-//
-//
-//    }
 
 
 }
