@@ -21,5 +21,5 @@ data class CasesNotUsed(
     val councilWorkerID: String,
     val userID: String,
     val NotifyUpdate: Boolean,
-    val userEmail: String
+    val UserMobile: String,
 ) : Parcelable {}

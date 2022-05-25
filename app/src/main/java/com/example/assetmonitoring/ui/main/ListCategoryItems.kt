@@ -107,8 +107,10 @@ class ListCategoryItems : AppCompatActivity(), OnMapReadyCallback, View.OnClickL
         //SL: this is to pass the selected category name and item to the next activity - for saving to Database
         fun passIntent(){
             val i = Intent(this, ReportIssueActivity::class.java).apply{
-                putExtra("category", categoryName)
+                putExtra("category", categoryNameTV.text.toString())
                 putExtra("selectedItem", selectedItemName)
+                putExtra("location", mapET.text.toString())
+
             }
             startActivity(i)
         }
