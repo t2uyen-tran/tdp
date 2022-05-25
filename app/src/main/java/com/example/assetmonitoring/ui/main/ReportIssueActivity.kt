@@ -2,6 +2,7 @@ package com.example.assetmonitoring.ui.main
 
 import android.Manifest
 import android.app.Activity
+import android.app.usage.ExternalStorageStats
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.ContextWrapper
@@ -23,15 +24,14 @@ import com.example.assetmonitoring.model.StaffJob
 import com.example.assetmonitoring.model.User
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.OutputStream
+import java.io.*
 import java.sql.Timestamp
 import java.util.*
 
@@ -52,6 +52,10 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
     private lateinit var emailText: String
     private lateinit var radioSexGroup: RadioGroup
     private lateinit var radioSexButton: RadioButton
+
+    private lateinit var storage: FirebaseStorage
+    private lateinit var storageReference: StorageReference
+    private lateinit var saveImageToInternalStorageURI :Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,6 +105,9 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
         //db
         val submitBtn = findViewById<Button>(R.id.submit_buton)
         submitBtn.setOnClickListener(this)
+
+        storage = FirebaseStorage.getInstance()
+        storageReference = storage.getReference()
 
 
     }
@@ -196,7 +203,7 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
                 val currentTime = Calendar.getInstance().time
                 Log.e("currentTime: ", "$currentTime")
 
-                database3 = FirebaseDatabase.getInstance().getReference("jobs")
+                database3 = FirebaseDatabase.getInstance().getReference("")
                 var key3 = database3.push().getKey().toString()
 
                 val ctb = CaseContributor(key1,Timestamp(currentTime.time).time,notifyDB,descriptionDB,photoURLDB)
@@ -214,6 +221,8 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
                     Toast.makeText(this@ReportIssueActivity, "Failed insert", Toast.LENGTH_SHORT)
                         .show()
                 }
+                database.child(key).child("caseID").removeValue();
+
 
                 database1.child(key1).setValue(ctb).addOnSuccessListener {
                     Toast.makeText(this@ReportIssueActivity, "Successfully insert", Toast.LENGTH_SHORT)
@@ -224,6 +233,9 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
                         .show()
                 }
 
+                database1.child(key1).child("userID").removeValue();
+                database1.child("0").removeValue();
+
                 database2.child(key1).setValue(user).addOnSuccessListener {
                     Toast.makeText(this@ReportIssueActivity, "Successfully insert", Toast.LENGTH_SHORT)
                         .show()
@@ -233,7 +245,17 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
                         .show()
                 }
 
-                database3.child(key3).setValue(staffJob).addOnSuccessListener {
+                database2.child(key1).child("userID").removeValue();
+
+                val staffJobValues = staffJob.toMap()
+
+                val childUpdates = hashMapOf<String, Any>(
+                    "/jobs/$key3" to staffJobValues,
+                )
+
+                database3.updateChildren(childUpdates)
+
+                /*database3.child(key3).setValue(staffJob).addOnSuccessListener {
                     Toast.makeText(this@ReportIssueActivity, "Successfully insert", Toast.LENGTH_SHORT)
                         .show()
 
@@ -241,7 +263,7 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
                     Toast.makeText(this@ReportIssueActivity, "Failed insert", Toast.LENGTH_SHORT)
                         .show()
                 }
-
+                database3.child(key3).child("jobID").removeValue();*/
 
 
                 /*Log.e("Saved Image : ", "$caseIDDB")
@@ -265,7 +287,7 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == GALLERY) {
                 if (data != null) {
-                    val contentURI = data.data
+                    val contentURI = data?.data!!
                     try {
                         // Here this is used to get an bitmap from URI
                         @Suppress("DEPRECATION")
@@ -274,8 +296,12 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
                         val saveImageToInternalStorage =
                             saveImageToInternalStorage(selectedImageBitmap)
                         ivPlaceImage.setImageBitmap(selectedImageBitmap)
-                        saveImageToInternalStorageString = saveImageToInternalStorage.toString()
                         Log.e("Saved Image : ", "Path :: $saveImageToInternalStorage")
+                        //saveImageToInternalStorageURI = contentURI
+                        //saveImageToInternalStorageString = saveImageToInternalStorageURI.toString()
+                        Log.e("ddd","$contentURI")
+
+                        uploadPicture()
 
                         // Set the selected image from GALLERY to imageView.
                         Toast.makeText(this@ReportIssueActivity, "Successfully added from upload", Toast.LENGTH_SHORT)
@@ -287,18 +313,58 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
                     }
                 }
             }else if (requestCode == CAMERA) {
-
                 val thumbnail: Bitmap = data!!.extras!!.get("data") as Bitmap // Bitmap from camera
+                val bytes: ByteArrayOutputStream = ByteArrayOutputStream()
+                thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes)
+                val  bb = bytes.toByteArray()
+
                 val saveImageToInternalStorage =
                     saveImageToInternalStorage(thumbnail)
                 ivPlaceImage.setImageBitmap(thumbnail)
-                saveImageToInternalStorageString = saveImageToInternalStorage.toString()
+
+
+                //saveImageToInternalStorageURI = saveImageToInternalStorage
+                //saveImageToInternalStorageString = saveImageToInternalStorage.toString()
                 Log.e("Saved Image : ", "Path :: $saveImageToInternalStorage")
+
+
+                uploadPictureFromCamera(bb)
                 Toast.makeText(this@ReportIssueActivity, "Successfully added from camera", Toast.LENGTH_SHORT)
                     .show() // Set to the imageView.
             }
 
         }
+    }
+
+    private fun uploadPicture() {
+        val randomKey = UUID.randomUUID().toString()
+        // Create a reference to "mountains.jpg"
+        val mountainsRef = storageReference.child("/" + randomKey)
+        mountainsRef.putFile(saveImageToInternalStorageURI).addOnSuccessListener {
+            Toast.makeText(this@ReportIssueActivity, "Successfully add to storage", Toast.LENGTH_SHORT)
+                .show() // Set to the imageView.
+            saveImageToInternalStorageString = "gs://asset-monitoring-6b16b.appspot.com/" + randomKey
+        }.addOnFailureListener {
+            Toast.makeText(this@ReportIssueActivity, "Failed add to storage", Toast.LENGTH_SHORT)
+                .show()
+        }
+        // Create a reference to 'images/mountains.jpg'
+
+    }
+    fun uploadPictureFromCamera(bb:ByteArray?) {
+        val randomKey = UUID.randomUUID().toString()
+        // Create a reference to "mountains.jpg"
+        val mountainsRef = storageReference.child("/" + randomKey)
+        mountainsRef.putBytes(bb!!).addOnSuccessListener {
+            Toast.makeText(this@ReportIssueActivity, "Successfully add to storage", Toast.LENGTH_SHORT)
+                .show() // Set to the imageView.
+            saveImageToInternalStorageString = "gs://asset-monitoring-6b16b.appspot.com/" + randomKey
+        }.addOnFailureListener {
+            Toast.makeText(this@ReportIssueActivity, "Failed add to storage", Toast.LENGTH_SHORT)
+                .show()
+        }
+        // Create a reference to 'images/mountains.jpg'
+
     }
 
     private fun takePhotoFromCamera() {
