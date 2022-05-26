@@ -276,6 +276,10 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
                 Log.e("Saved Image : ",  "$userIDDB")
                 Log.e("Saved Image : ",  "$userMobileDB")
                 Log.e("Saved Image : ",  "$notify")*/
+
+
+                val i = Intent(this, MainActivity::class.java)
+                startActivity(i)
             }
 
         }
@@ -287,7 +291,7 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == GALLERY) {
                 if (data != null) {
-                    val contentURI = data?.data!!
+                    val contentURI = data.data
                     try {
                         // Here this is used to get an bitmap from URI
                         @Suppress("DEPRECATION")
@@ -297,9 +301,8 @@ class ReportIssueActivity : AppCompatActivity(),View.OnClickListener{
                             saveImageToInternalStorage(selectedImageBitmap)
                         ivPlaceImage.setImageBitmap(selectedImageBitmap)
                         Log.e("Saved Image : ", "Path :: $saveImageToInternalStorage")
-                        //saveImageToInternalStorageURI = contentURI
+                        saveImageToInternalStorageURI = contentURI!!
                         //saveImageToInternalStorageString = saveImageToInternalStorageURI.toString()
-                        Log.e("ddd","$contentURI")
 
                         uploadPicture()
 

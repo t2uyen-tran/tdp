@@ -185,6 +185,7 @@ class ListCategoryItems : AppCompatActivity(), OnMapReadyCallback, View.OnClickL
                                     val mapFragment = supportFragmentManager
                                         .findFragmentById(R.id.map) as SupportMapFragment
                                     mapFragment.getMapAsync(this@ListCategoryItems)
+                                    mapET.setText(a)
                                 }
                             }
 
