@@ -14,6 +14,7 @@ import com.example.assetmonitoring.model.Case
 import com.example.assetmonitoring.model.dateTime
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -78,10 +79,12 @@ class OutstandingListAdapter: ListAdapter<Case, OutstandingListAdapter.Outstandi
             caseItemTV.text = item.item
 
             item.contributors.first().let { caseContributor ->
+                Timber.i(caseContributor.photo)
                 val gsReference = Firebase.storage.getReferenceFromUrl(
-                    caseContributor.photo!!
+                    caseContributor.photo
                 )
                 gsReference.downloadUrl.addOnSuccessListener {
+                    Timber.i(it.toString())
                     casePhotoIV.load(it) {
                         crossfade(true)
                     }

@@ -71,9 +71,9 @@ class OutstandingActivity : AppCompatActivity() {
         super.onResume()
 
         database.child("cases").get().addOnSuccessListener { dataSnapshot ->
-            val contributors = mutableListOf<CaseContributor>()
             val cases = mutableListOf<Case>()
             for (child in dataSnapshot.children) {
+                val contributors = mutableListOf<CaseContributor>()
                 val contributorsSnapshot = child.child("contributors")
                 for (contributorChild in contributorsSnapshot.children) {
                     val date = contributorChild.child("date").getValue<Any>().toString().toLong()
