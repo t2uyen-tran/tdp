@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.assetmonitoring.R
 import com.example.assetmonitoring.model.Case
+import com.example.assetmonitoring.model.dateTime
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.text.SimpleDateFormat
@@ -87,7 +88,7 @@ class OutstandingListAdapter: ListAdapter<Case, OutstandingListAdapter.Outstandi
                 }
 
                 val df = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.US)
-                caseLastUpdatedTV.text = df.format(caseContributor.date)
+                caseLastUpdatedTV.text = df.format(caseContributor.dateTime)
 
             }
 

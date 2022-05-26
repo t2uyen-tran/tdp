@@ -76,11 +76,12 @@ class OutstandingActivity : AppCompatActivity() {
             for (child in dataSnapshot.children) {
                 val contributorsSnapshot = child.child("contributors")
                 for (contributorChild in contributorsSnapshot.children) {
+                    val date = contributorChild.child("date").getValue<Any>().toString().toLong()
                     contributors.add(
                         CaseContributor(
                             userID = contributorChild.key!!,
                             notify = contributorChild.child("notify").getValue<Boolean>()!!,
-                            date = Date(contributorChild.child("date").getValue<String>()?.toLong()!!).time,
+                            date =  date,
                             comment = contributorChild.child("comment").getValue<String>()!!,
                             photo = contributorChild.child("photo").getValue<String>()!!
                         )

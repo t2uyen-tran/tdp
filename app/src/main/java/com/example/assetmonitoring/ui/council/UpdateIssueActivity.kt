@@ -8,6 +8,7 @@ import com.example.assetmonitoring.R
 import com.example.assetmonitoring.databinding.UpdateIssueActivityBinding
 import com.example.assetmonitoring.model.Case
 import com.example.assetmonitoring.model.StaffJob
+import com.example.assetmonitoring.model.dateTime
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -76,7 +77,7 @@ class UpdateIssueActivity : AppCompatActivity() {
                 }
 
                 val df = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.US)
-                caseLastUpdatedOnTV.text = df.format(caseContributor.date)
+                caseLastUpdatedOnTV.text = df.format(caseContributor.dateTime)
                 binding.descriptionTV.text = caseContributor.comment
             }
             caseCategoryTV.text = case.category

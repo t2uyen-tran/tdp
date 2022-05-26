@@ -14,3 +14,7 @@ data class CaseContributor (
     val comment: String,    // Text comment/description of issue
     val photo: String
 ) : Parcelable
+
+// UT: Define Date type for date value read from DB
+val CaseContributor.dateTime: Date
+    get() = Date(date)
